@@ -1,0 +1,102 @@
+.warp {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   height: 60px;
+   background-color: rgba(139, 103, 229, 0.472);
+   margin-bottom: 10px;
+}
+
+.logo {
+   /* width: 50px; */
+   height: 50px;
+   padding: 0 20px;
+   cursor: pointer;
+}
+
+.nav {
+   display: flex;
+   align-items: center;
+}
+
+.avatar {
+   width: 37px;
+   height: 37px;
+   border-radius: 50%;
+   padding: 0 10px;
+}
+
+.writeReport {
+   position: relative;
+   background-color: chartreuse;
+   border: 1px solid rgb(113, 211, 113);
+   border-radius: 35px;
+   padding: 4px 15px;
+   display: flex;
+   align-items: center;
+   color: rgba(26, 148, 240, 0.952);
+   margin-right: 5px;
+   cursor: pointer;
+   font-size: 16px;
+   box-shadow: 1px 1px 3px rgb(112, 148, 112);
+}
+.writeReport:hover {
+   box-shadow: 2px 2px 13px rgb(151, 183, 151);
+}
+.writeReport:hover .writeReportWrap {
+   display: block;
+}
+
+.writeReport::after {
+   position: absolute;
+   content: '';
+   width: 220px;
+   height: 10px;
+   /* background-color: aqua; */
+   top: 100%;
+   right: 0;
+}
+
+.writeReportWrap {
+   position: absolute;
+   width: 220px;
+   /* height: 100px; */
+   background-color: white;
+   top: 114%;
+   right: 0;
+   border: 1px solid #ccc;
+   box-shadow: 2px 3px 10px rgb(163, 162, 162);
+   z-index: 3;
+   border-radius: 3px;
+   display: none;
+}
+
+.writeReportList {
+   padding: 5px;
+   margin: 5px;
+}
+
+.writeReportItem {
+   list-style: none;
+   font-size: 18px;
+   color: rgb(60, 58, 58);
+   border-bottom: 1px solid #ccc;
+   margin-bottom: 4px;
+
+   padding: 2px 0;
+   width: 100%;
+}
+.Link {
+   text-decoration: none;
+   color: #333;
+}
+
+.writeReportItem:hover {
+   font-weight: 500;
+}
+
+.myReport {
+   margin: 0 10px;
+   cursor: pointer;
+}

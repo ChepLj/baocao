@@ -1,38 +1,37 @@
+:root {
+   /* --widthScreen: 100%; */
+   --widthScreen: 1440px;
+   box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
+   width: var(--widthScreen);
+   height: 100vh;
+
+   /* text-align: center; */
+   max-width: 1440px;
+   background-color: rgb(255, 255, 255);
+   padding: 0px;
+   scrollbar-width: thin;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Scroll Bar */
+::-webkit-scrollbar {
+   width: 6px;
+   height: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+   /* border-radius: 5px; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+::-webkit-scrollbar-thumb {
+   /* border-radius: 5px; */
+   -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+::-webkit-scrollbar-thumb:hover {
+   /* border-radius: 5px; */
+   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }

@@ -1,0 +1,70 @@
+.modal {
+   position: fixed;
+   z-index: 10;
+   background-color: rgba(0, 0, 0, 0.8);
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   animation: modalIn linear 0.2s;
+}
+
+@keyframes modalIn {
+   from {
+      opacity: 0.3;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+.form {
+   position: absolute;
+   width: 65vh;
+   height: 90vh;
+   background-color: white;
+}
+
+.close {
+   color: red;
+   position: absolute;
+   top: -25px;
+   right: 0;
+   cursor: pointer;
+}
+
+.downloadPDF {
+   background-color: greenyellow;
+   width: 140px;
+   height: 25px;
+   text-align: center;
+   color: rgb(232, 139, 105);
+   position: absolute;
+   bottom: 0px;
+   right: -145px;
+   cursor: pointer;
+   border-radius: 15px;
+   box-shadow: 2px 2px 5px rgb(38, 34, 80);
+}
+.downloadPDF:hover {
+   box-shadow: 1px 1px 29px rgb(209, 223, 203);
+}
+.downloadJPG {
+   background-color: rgb(241, 255, 47);
+   width: 140px;
+   height: 25px;
+   text-align: center;
+   color: rgb(232, 139, 105);
+   position: absolute;
+   bottom: 35px;
+   right: -145px;
+   cursor: pointer;
+   border-radius: 15px;
+   box-shadow: 2px 2px 5px rgb(38, 34, 80);
+}
+.downloadJPG:hover {
+   box-shadow: 1px 1px 29px rgb(209, 223, 203);
+}

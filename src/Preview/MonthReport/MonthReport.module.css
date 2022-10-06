@@ -1,0 +1,119 @@
+.warp {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+   overflow-x: hidden;
+   scrollbar-width: thin;
+   user-select: text;
+}
+
+.header {
+   display: flex;
+   align-items: top;
+   justify-content: space-between;
+   border-bottom: 1px solid#333;
+   margin-bottom: 10px;
+   margin: 0 7px 10px 7px;
+}
+
+.address {
+   width: 40%;
+   font-size: 12px;
+   padding: 15px;
+}
+
+.logo {
+   width: 30%;
+   font-size: 12px;
+   padding: 15px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.logoImg {
+   width: 70%;
+   padding-bottom: 3px;
+}
+
+.title {
+   font-size: 28px;
+   font-weight: 600;
+   color: #20ae95;
+}
+
+.user {
+   font-size: 18px;
+   margin-bottom: 25px;
+   color: rgb(205, 27, 228);
+   font-style: italic;
+}
+
+.list {
+   width: 100%;
+   font-size: 18px;
+   font-weight: 700;
+   box-sizing: border-box;
+   margin: 5px;
+}
+
+.item {
+   font-size: 14px;
+   font-weight: 500;
+   list-style: circle;
+   margin: 5px 10px 10px 35px;
+}
+.signature {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   margin-top: 30px;
+}
+
+.signatureTemp {
+   flex: 1;
+   /* width: 10px; */
+   height: 10px;
+}
+.signatureWarp {
+   /* position: absolute; */
+   /* bottom: 40px; */
+   /* right: 40px; */
+   /* width: 100%; */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 15px;
+}
+
+.signatureDate {
+   margin-bottom: 70px;
+   font-size: 14;
+}
+
+.signatureName {
+   font-style: italic;
+}
+.listItem {
+   list-style: none;
+   box-sizing: border-box;
+   padding-left: 0;
+   margin-top: 5px;
+}
+.itemTitle {
+   color: #b8c523;
+   font-size: 15px;
+   padding-left: 30px;
+}
+
+.issueWarp {
+   width: 100%;
+   font-size: 18px;
+   font-weight: 700;
+   box-sizing: border-box;
+   margin: 5px;
+   padding-left: 40px;
+}

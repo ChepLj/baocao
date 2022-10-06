@@ -1,0 +1,73 @@
+.warp {
+   padding: 10px;
+}
+.titleWarp {
+   display: flex;
+   align-items: center;
+   color: rgb(63, 62, 62);
+   border-bottom: 1px solid #ccc;
+   justify-content: space-between;
+}
+
+.title {
+   font-size: 16px;
+   font-weight: 400;
+   align-items: center;
+}
+
+.fieldWarp {
+   border-bottom: 1px solid #ccc;
+   padding-top: 10px;
+}
+
+.fieldTitle {
+   font-size: 14px;
+   font-weight: 400;
+   font-style: italic;
+}
+
+.lists {
+   margin: 5px;
+   padding: 0;
+   text-align: center;
+}
+
+.button {
+   width: 99%;
+   margin: 0;
+   /* height: 26px; */
+   border-radius: 0px;
+   border: 1px solid #ccc;
+   background-color: rgb(245, 245, 245);
+   font-size: 14px;
+   font-weight: 500;
+   color: gray;
+   margin: 3px 0;
+   padding: 4px;
+   cursor: pointer;
+   user-select: none;
+}
+
+.button:hover {
+   background-color: rgba(245, 245, 245, 0.4);
+}
+
+.button:active {
+   opacity: 0.5;
+}
+
+.button.active {
+   background-color: rgba(49, 128, 247, 0.861);
+   color: white;
+   font-weight: 300;
+}
+
+/* ////////// */
+.allTypeFilter {
+}
+.allUserFilter {
+}
+.buttonTypeFilter {
+}
+.buttonUserFilter {
+}
