@@ -1,8 +1,10 @@
 import style from './MonthReport.module.css'
 import { useRef, useState } from 'react'
 import SaveModal from '../../../../../Modal/SaveModal/SaveModal'
+import { dbRT } from '../../../../../firebase/firebaseConfig'
+import { update } from 'firebase/database'
 
-export default function MonthReport({ data }) {
+export default function MonthReport({ data, authEmailCurrent }) {
    const arrayData = []
    if (data) {
       for (const key in data) arrayData.push(data[key])
@@ -13,16 +15,41 @@ export default function MonthReport({ data }) {
          <div className={style.title}>Báo cáo tháng</div>
          <div className={style.elementsWarp}>
             {arrayData.map((crr, index) => {
-               return <ElementDoc data={crr} key={index} />
+               return <ElementDoc data={crr} key={index} authEmailCurrent={authEmailCurrent} />
             })}
          </div>
       </section>
    )
 }
 
-function ElementDoc({ data }) {
+function ElementDoc({ data, authEmailCurrent }) {
    const [state, setState] = useState(false)
    const ref = useRef(data.ref)
+   ////////////////////
+   const handelConfirm = (ref) => {
+      let valueConfirm = prompt('Nhập mã sau để xóa ( pomina3-btdbf )', '(nhập chính xác có dấu)')
+      if (valueConfirm.trim() === 'pomina3-btdbf') {
+         handelDelete(ref)
+      } else {
+         alert('Lỗi ! Mã xác thực không đúng !!!')
+      }
+   }
+   const handelDelete = (ref) => {
+      const object = {}
+      const newReportRef = 'NewReport/' + ref.replace(/[^0-9]/g, '')
+      object[ref] = null
+      object[newReportRef] = null
+      // dung hàm update với giá trị null để xóa
+      update(dbRT, object)
+         .then((result) => {
+            window.location.href = '/'
+            alert('Xóa thành công !!!')
+         })
+         .catch((error) => {
+            alert('Lỗi', error)
+         })
+   }
+   ////////////////
    return (
       <>
          <section
@@ -41,6 +68,18 @@ function ElementDoc({ data }) {
                <span className={style.userName}>{data.user}</span>
                <div className={style.time}>{data.date.timestamp}</div>
             </div>
+            {data.authEmail === authEmailCurrent && (
+               <span
+                  className={`${style.delete} material-symbols-outlined `}
+                  onClick={(event) => {
+                     handelConfirm(data.ref)
+                     // handelDelete(data.ref)
+                     event.stopPropagation()
+                  }}
+               >
+                  delete
+               </span>
+            )}
          </section>
          {/* ẩn hiện Save Modal */}
          {state && (

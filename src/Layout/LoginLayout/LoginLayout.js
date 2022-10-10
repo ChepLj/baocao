@@ -29,6 +29,9 @@ export default function LoginLayout() {
                   </a>
                   <a
                      onClick={() => {
+                        const elementLoadding = document.createElement('span')
+                        elementLoadding.classList.add('loader')
+                        document.querySelector('.App').appendChild(elementLoadding)
                         googleLogin()
                      }}
                      className={`${style.google} ${style.btn}`}

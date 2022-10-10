@@ -15,13 +15,19 @@ export default function MainLayout() {
       auth = JSON.parse(sessionStorage.getItem('user'))
    }
    useEffect(() => {
+      /////tao element lodding mount vaof DOM
+      const elementLoadding = document.createElement('span')
+      elementLoadding.classList.add('loader')
+      document.querySelector('.App').appendChild(elementLoadding)
+      //////////// lay du lieu
       getFirebaseData('/')
          .then((result) => {
             setState(result.val())
-            // console.log(result.val())
+            elementLoadding.remove()
          })
          .catch((error) => {
             alert(error)
+            elementLoadding.remove()
          })
    }, [filterState])
 
@@ -42,7 +48,7 @@ export default function MainLayout() {
                   <NewReport data={state.NewReport} />
                </section>
                <section className={style.collection}>
-                  <Collection data={state.Report} filter={filterState} />
+                  <Collection data={state.Report} filter={filterState} auth={auth} />
                </section>
             </section>
          </section>

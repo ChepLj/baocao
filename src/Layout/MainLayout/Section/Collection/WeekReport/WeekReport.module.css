@@ -26,6 +26,7 @@
    /* background-color: rgb(189, 204, 203); */
    margin: 0 10px;
    /* flex: 1; */
+   position: relative;
 }
 
 .document {
@@ -63,4 +64,16 @@
    margin-left: auto;
 
    padding: 2px 0;
+}
+
+.delete {
+   position: absolute;
+   bottom: 15px;
+   right: 4px;
+   font-size: 15px;
+}
+
+.delete:hover {
+   color: red;
+   font-size: 18px;
 }

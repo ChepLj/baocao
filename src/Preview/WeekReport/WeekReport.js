@@ -95,6 +95,7 @@ export default function WeekReport({ content }) {
                <span className={style.signatureName}>{content.user}</span>
             </div>
          </section>
+         <div className={style.auth}>{(content.authEmail ??= 'none')}</div>
       </section>
    )
 }

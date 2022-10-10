@@ -5,7 +5,7 @@ export default function googleLogin() {
    signInWithPopup(auth, providerGG)
       .then((result) => {
          // The signed-in user info.
-
+         document.querySelector('.loader').remove()
          sessionStorage.setItem('user', JSON.stringify(result.user))
          if (sessionStorage.getItem('user')) {
             window.location.href = '/'
@@ -13,5 +13,6 @@ export default function googleLogin() {
       })
       .catch((error) => {
          alert(error)
+         document.querySelector('.loader').remove()
       })
 }

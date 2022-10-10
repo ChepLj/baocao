@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import SaveModal from '../../../Modal/SaveModal/SaveModal'
 import style from './Header.module.css'
+import logo from '../../../static/img/logo.png'
 
 export default function Header({ auth }) {
    const [state, setState] = useState(false)
@@ -57,12 +58,7 @@ export default function Header({ auth }) {
                window.location.href = '/'
             }}
          >
-            <img
-               className={style.logo}
-               src={
-                  'https://down.699pic.com/element/40024/9047.png?_upt=849453e71664874767&_upd=Lovepik_com-400249047-a-row-of-files.png'
-               }
-            />
+            <img className={style.logo} src={logo} />
             Quay về trang chủ
          </div>
 

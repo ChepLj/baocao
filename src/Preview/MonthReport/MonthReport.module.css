@@ -117,3 +117,11 @@
    margin: 5px;
    padding-left: 40px;
 }
+
+.auth {
+   position: absolute;
+   bottom: 4px;
+   left: 4px;
+   font-style: italic;
+   font-size: 14px;
+}

@@ -1,5 +1,6 @@
 import style from './Header.module.css'
 import { Link } from 'react-router-dom'
+import logo from '../../../static/img/logo.png'
 
 export default function Header({ user, auth }) {
    auth.displayName ??= 'guest'
@@ -14,9 +15,7 @@ export default function Header({ user, auth }) {
             onClick={() => {
                window.location.href = '/'
             }}
-            src={
-               'https://down.699pic.com/element/40024/9047.png?_upt=849453e71664874767&_upd=Lovepik_com-400249047-a-row-of-files.png'
-            }
+            src={logo}
          />
          <div className={style.nav}>
             <div className={style.writeReport}>

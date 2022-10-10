@@ -3,7 +3,11 @@ import WeekReport from './WeekReport/WeekReport'
 import MonthReport from './MonthReport/MonthReport'
 import ShiftReport from './ShiftReport/ShiftReport'
 
-export default function Collection({ data, filter = { type: ['Tất Cả'], user: ['Tất Cả'] } }) {
+export default function Collection({
+   data,
+   filter = { type: ['Tất Cả'], user: ['Tất Cả'] },
+   auth,
+}) {
    if (filter.user.includes('Tất Cả')) {
       //nếu là tất cả thì không làm gì
    } else {
@@ -20,15 +24,24 @@ export default function Collection({ data, filter = { type: ['Tất Cả'], user
 
          {data.ShiftReport &&
             (filter.type.includes('Tất Cả') || filter.type.includes('Báo Cáo Ca')) && (
-               <ShiftReport data={data.ShiftReport} />
+               <ShiftReport
+                  data={data.ShiftReport}
+                  authEmailCurrent={(auth.email ??= 'authEmailCurrent')}
+               />
             )}
          {data.WeekReport &&
             (filter.type.includes('Tất Cả') || filter.type.includes('Báo Cáo Tuần')) && (
-               <WeekReport data={data.WeekReport} />
+               <WeekReport
+                  data={data.WeekReport}
+                  authEmailCurrent={(auth.email ??= 'authEmailCurrent')}
+               />
             )}
          {data.MonthReport &&
             (filter.type.includes('Tất Cả') || filter.type.includes('Báo Cáo Tháng')) && (
-               <MonthReport data={data.MonthReport} />
+               <MonthReport
+                  data={data.MonthReport}
+                  authEmailCurrent={(auth.email ??= 'authEmailCurrent')}
+               />
             )}
       </section>
    )
