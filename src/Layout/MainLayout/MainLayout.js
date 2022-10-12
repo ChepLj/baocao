@@ -22,8 +22,8 @@ export default function MainLayout() {
       //////////// lay du lieu
       getFirebaseData('/')
          .then((result) => {
-            setState(result.val())
             elementLoadding.remove()
+            setState(result.val())
          })
          .catch((error) => {
             alert(error)

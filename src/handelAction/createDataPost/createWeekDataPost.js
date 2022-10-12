@@ -42,22 +42,25 @@ export default function createDataPost(callBack) {
    /////////////////////////
    for (const value of jobElm) {
       const temp = value.getElementsByTagName('p')
-      if (!(temp[0].innerText.trim() === '')) {
-         job.push(temp[0].innerText)
+      const text = temp[0].innerText.trim()
+      if (!(text === '')) {
+         job.push(text)
       }
    }
    /////////
    for (const value of planElm) {
       const temp = value.getElementsByTagName('p')
-      if (!(temp[0].innerText.trim() === '')) {
-         plan.push(temp[0].innerText)
+      const text = temp[0].innerText.trim()
+      if (!(text === '')) {
+         job.push(text)
       }
    }
    //////////
    for (const value of proposeElm) {
       const temp = value.getElementsByTagName('p')
-      if (!(temp[0].innerText.trim() === '')) {
-         propose.push(temp[0].innerText)
+      const text = temp[0].innerText.trim()
+      if (!(text === '')) {
+         job.push(text)
       }
    }
    ////////////

@@ -15,19 +15,21 @@
    align-items: top;
    justify-content: space-between;
    border-bottom: 1px solid#333;
-   margin-bottom: 10px;
+
    margin: 0 7px 10px 7px;
 }
 
 .address {
    width: 40%;
-   font-size: 12px;
+   /* font-size: 12px; */
+   font-size: 0.75rem;
    padding: 15px;
 }
 
 .logo {
    width: 30%;
-   font-size: 12px;
+   /* font-size: 12px; */
+   font-size: 0.75rem;
    padding: 15px;
    display: flex;
    flex-direction: column;
@@ -36,17 +38,20 @@
 
 .logoImg {
    width: 70%;
+   height: auto;
    padding-bottom: 3px;
 }
 
 .title {
-   font-size: 28px;
+   /* font-size: 28px; */
+   font-size: 1.75rem;
    font-weight: 600;
    color: #20ae95;
 }
 
 .user {
-   font-size: 18px;
+   /* font-size: 18px; */
+   font-size: 1.125rem;
    margin-bottom: 25px;
    color: rgb(205, 27, 228);
    font-style: italic;
@@ -54,14 +59,16 @@
 
 .list {
    width: 100%;
-   font-size: 18px;
+   font-size: 1.125rem;
+   /* font-size: 18px; */
    font-weight: 700;
    box-sizing: border-box;
    margin: 5px;
 }
 
 .item {
-   font-size: 14px;
+   /* font-size: 14px; */
+   font-size: 0.875rem;
    font-weight: 500;
    list-style: circle;
    margin: 5px 10px 10px 35px;
@@ -91,7 +98,8 @@
 
 .signatureDate {
    margin-bottom: 70px;
-   font-size: 14;
+   font-size: 0.875rem;
+   /* font-size: 14; */
 }
 
 .signatureName {
@@ -105,13 +113,15 @@
 }
 .itemTitle {
    color: #b8c523;
-   font-size: 15px;
+   font-size: 0.9375rem;
+   /* font-size: 15px; */
    padding-left: 30px;
 }
 
 .issueWarp {
    width: 100%;
-   font-size: 18px;
+   font-size: 1.125rem;
+   /* font-size: 18px; */
    font-weight: 700;
    box-sizing: border-box;
    margin: 5px;
@@ -123,5 +133,6 @@
    bottom: 4px;
    left: 4px;
    font-style: italic;
-   font-size: 14px;
+   font-size: 0.875rem;
+   /* font-size: 14px; */
 }
