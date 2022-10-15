@@ -8,6 +8,7 @@ import LoginLayout from './Layout/LoginLayout/LoginLayout'
 import MainLayout from './Layout/MainLayout/MainLayout'
 
 function App() {
+   console.log(process.env)
    return (
       <div className="App">
          <Routes>

@@ -27,7 +27,10 @@
    height: 90vh;
    background-color: white;
 }
-
+.areaPrint {
+   width: 100%;
+   height: 100%;
+}
 .close {
    color: red;
    position: absolute;

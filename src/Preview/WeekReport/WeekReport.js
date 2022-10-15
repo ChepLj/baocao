@@ -1,8 +1,6 @@
-import MonthReport from '../MonthReport/MonthReport'
 import style from './WeekReport.module.css'
 
 export default function WeekReport({ content }) {
-   const time = new Date()
    return (
       <section className={`${style.warp} warp`}>
          <header className={`${style.header} header`}>

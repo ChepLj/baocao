@@ -100,3 +100,60 @@
    margin: 0 10px;
    cursor: pointer;
 }
+
+.accountWrap {
+   position: absolute;
+   width: auto;
+   /* height: 100px; */
+   background-color: white;
+   top: 100%;
+   right: 8px;
+   border: 1px solid #ccc;
+   box-shadow: 2px 3px 10px rgb(163, 162, 162);
+   z-index: 3;
+   border-radius: 3px;
+   /* display: flex; */
+   flex-direction: column;
+   align-items: center;
+   display: none;
+}
+
+.account {
+   position: relative;
+}
+
+.accountList {
+   list-style: none;
+   margin: 10px;
+   padding: 0;
+   min-width: 12rem;
+}
+
+.accountItem {
+   border-bottom: 1px solid #ccc;
+   padding: 5px;
+}
+
+.accountBtn {
+   margin: 10px;
+   width: 92%;
+   padding: 5px;
+   background-color: whitesmoke;
+   border: 1px solid #ccc;
+   box-shadow: 1px 1px 5px #ccc;
+   cursor: pointer;
+   min-width: 12rem;
+}
+
+.account:hover .accountWrap {
+   display: flex;
+}
+
+.accountWrap::before {
+   position: absolute;
+   content: '';
+   /* background-color: #333; */
+   width: 12rem;
+   height: 1.5rem;
+   top: -13%;
+}

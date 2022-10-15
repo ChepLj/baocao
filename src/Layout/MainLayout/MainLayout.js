@@ -23,6 +23,7 @@ export default function MainLayout() {
       getFirebaseData('/')
          .then((result) => {
             elementLoadding.remove()
+            // console.log(result.val())
             setState(result.val())
          })
          .catch((error) => {
@@ -33,7 +34,7 @@ export default function MainLayout() {
 
    return (
       <section className={style.warpPage}>
-         <Header user={state.User} auth={auth} />
+         <Header user={state.User} authLogin={auth} />
          <section className={style.warpContent}>
             <section className={style.leftSideContent}>
                <Filter
