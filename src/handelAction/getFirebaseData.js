@@ -5,6 +5,6 @@ export const getFirebaseData = (ref) => {
    try {
       return get(child(dbRT, ref))
    } catch (error) {
-      console.log(error)
+      console.log("🚀 ~ file: getFirebaseData.js:8 ~ getFirebaseData ~ error", error)
    }
 }

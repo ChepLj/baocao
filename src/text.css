@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+html {
+    font-size: 16px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+.shift-warp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* overflow-y: scroll; */
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    user-select: text;
+}
+
+.shift-header {
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    border-bottom: 1px solid#333;
+    width: 100%;
+    margin: 0 7px 5px 7px;
+    position: relative;
+}
+
+.shift-address {
+    width: 40%;
+    font-size: 0.75rem;
+    padding: 15px;
+}
+
+.shift-headerItem {
+    width: 33%;
+    font-size: 0.75rem;
+    padding: 0 10px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+}
+
+.shift-headerItemInfo {
+    width: 33%;
+    font-size: 0.75rem;
+    padding: 0 10px;
+    margin: 10px 0;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    text-align: center;
+}
+
+.shift-headerItemBorderLR {
+    border-right: 1px #333 solid;
+    border-left: 1px #333 solid;
+}
+
+.shift-logoImg {
+    width: 60%;
+    height: auto;
+    padding-bottom: 3px;
+}
+
+.shift-infoItem {
+    font-size: 16px;
+    width: 33%;
+}
+
+.shift-timeStamp {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: gray;
+}
+
+.shift-user {
+    font-size: 1.125rem;
+    margin-bottom: 25px;
+    color: rgb(205, 27, 228);
+    font-style: italic;
+}
+
+.shift-list {
+    width: 100%;
+    font-size: 1.125rem;
+    font-weight: 700;
+    box-sizing: border-box;
+    margin: 5px;
+}
+
+.shift-item {
+    font-size: 0.875rem;
+    font-weight: 500;
+    list-style: circle;
+    margin: 5px 10px 10px 35px;
+}
+
+.shift-signature {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.shift-signatureTemp {
+    flex: 1;
+    height: 10px;
+}
+
+.shift-signatureWarp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+}
+
+.shift-signatureDate {
+    margin-bottom: 70px;
+    font-size: 0.875rem;
+}
+
+.shift-signatureName {
+    font-style: italic;
+}
+
+.shift-listItem {
+    list-style: none;
+    box-sizing: border-box;
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+.shift-itemTitle {
+    color: #b8c523;
+    font-size: 0.9375rem;
+    padding-left: 30px;
+}
+
+.shift-issueWarp {
+    width: 100%;
+    font-size: 1.125rem;
+    font-weight: 700;
+    box-sizing: border-box;
+    margin: 5px;
+    padding-left: 40px;
+}
+
+.shift-auth {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    font-style: italic;
+    font-size: 0.875rem;
+    color: #ccc;
+}
+
+.shift-time {
+    position: absolute;
+    bottom: 4px;
+    right: 18px;
+    font-style: italic;
+    font-size: 0.875rem;
+    color: #ccc;
+}
+
+.shift-table {
+    width: 96%;
+    margin: 0.5rem 0.5rem 0.1rem 1rem;
+    padding: 0;
+    border-spacing: 0px;
+    border-color: #333;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.shift-tableCaption {
+    text-align: left;
+    font-size: 1.0rem;
+    font-weight: 500;
+    padding-bottom: 0.3rem;
+}
+
+.shift-tableTitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.2rem 0;
+}
+
+.shift-tableContent {
+    font-size: 0.9rem;
+}
+
+.shift-tableChild {
+    width: 100%;
+    padding: 0;
+    border-spacing: 0px;
+    border-color: #ccc;
+    text-align: center;
+    border-collapse: collapse;
+    align-items: start;
+}
+
+.shift-tableTitleChild {
+    font-size: 0.8rem;
+    font-weight: 450;
+    padding: 0.2rem 0;
+}
+
+.shift-tableContentChild {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.1rem;
+}
+
+.shift-tableSignContent {
+    height: 4rem;
+}
+
+.shift-confirmImg {
+    width: 20%;
+    position: absolute;
+    top: 110%;
+    right: 8%;
+}
+
+.shift-signWrap {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.shift-hidden {
+    display: none;
+}

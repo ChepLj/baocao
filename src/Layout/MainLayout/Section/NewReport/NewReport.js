@@ -1,6 +1,7 @@
 import style from './NewReport.module.css'
 import { useState, useRef } from 'react'
 import SaveModal from '../../../../Modal/SaveModal/SaveModal'
+import { waitConfirmIcon } from '../../../../static/svg/sgv'
 
 export default function NewReport({ data }) {
    const arrayData = []
@@ -23,7 +24,7 @@ export default function NewReport({ data }) {
                   return <ElementMonthDoc data={crr} key={index} />
                }
                if (crr.type === 'shiftReport') {
-                  return <ElementWeekDoc data={crr} key={index} />
+                  return <ElementShiftDoc data={crr} key={index} />
                }
             })}
          </div>
@@ -112,6 +113,47 @@ function ElementMonthDoc({ data }) {
          {state && (
             <SaveModal
                type={'monthReport'}
+               upload={false}
+               refDirection={ref.current}
+               callBackClose={(value) => {
+                  setState(false)
+               }}
+            />
+         )}
+      </>
+   )
+}
+///////////
+function ElementShiftDoc({ data }) {
+   const [state, setState] = useState(false)
+   const ref = useRef(data.ref)
+   return (
+      <>
+         <section
+            className={style.documentWarp}
+            onClick={() => {
+               setState(true)
+            }}
+         >
+   <div className={style.document}>
+
+               Báo cáo CA{' '}
+               <span className={style.shift}>
+                  {data.user}
+               </span>
+               <div  className={style.timeWrap}>
+               <span className={style.session}>{data.date.session} </span>
+               <span className={style.date}>{data.date.date} </span>
+               <span className={style.monthYear}>{data.date.month}/{data.date.year} </span>
+               </div >
+
+            </div>
+            <div className={style.time}>{data.date.timestamp}</div>
+         </section>
+         {/* ẩn hiện Save Modal */}
+         {state && (
+            <SaveModal
+               type={'shiftReport'}
                upload={false}
                refDirection={ref.current}
                callBackClose={(value) => {

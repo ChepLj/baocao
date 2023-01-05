@@ -1,0 +1,334 @@
+.warp {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+   overflow-x: hidden;
+   scrollbar-width: thin;
+   user-select: text;
+}
+
+.header {
+   display: flex;
+   align-items: top;
+   justify-content: space-between;
+   border-bottom: 1px solid#333;
+   width: 100%;
+   margin: 0 7px 5px 7px;
+   position: relative;
+}
+.confirmImg{
+   width: 20%;
+   position: absolute;
+   top: 110%;
+   right: 8%;
+}
+.address {
+   width: 40%;
+   /* font-size: 12px; */
+   font-size: 0.75rem;
+   padding: 15px;
+}
+
+.headerItem {
+   width: 33%;
+   /* font-size: 12px; */
+   font-size: 0.75rem;
+   padding: 0 10px;
+   margin: 10px 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: start;
+   text-align: center;
+}
+.headerItemInfo{
+   width: 33%;
+   /* font-size: 12px; */
+   font-size: 0.75rem;
+   padding: 0 10px;
+   margin: 10px 0;
+   display: flex;
+   align-items: start;
+   justify-content: center;
+   text-align: center;
+}
+.headerItemBorderLR{
+   border-right:1px #333 solid;
+   border-left:1px #333 solid;
+}
+
+
+
+.logoImg {
+   width: 60%;
+   height: auto;
+   padding-bottom: 3px;
+   
+}
+
+.infoItem{
+   font-size: 16px;
+   width: 33%;
+}
+.infoItemChild{
+     display: block;
+      font-size: 22px;
+       font-weight: 700 ;
+}
+
+.timeStamp {
+   /* font-size: 10px; */
+   font-size: 0.75rem;
+   font-weight: 600;
+   color: gray;
+}
+
+.user {
+   /* font-size: 18px; */
+   font-size: 1.125rem;
+   margin-bottom: 25px;
+   color: rgb(205, 27, 228);
+   font-style: italic;
+}
+
+.list {
+   width: 100%;
+   font-size: 1.125rem;
+   /* font-size: 18px; */
+   font-weight: 700;
+   box-sizing: border-box;
+   margin: 5px;
+}
+
+.item {
+   /* font-size: 14px; */
+   font-size: 0.875rem;
+   font-weight: 500;
+   list-style: circle;
+   margin: 5px 10px 10px 35px;
+}
+.signature {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   margin-top: 30px;
+}
+
+.signatureTemp {
+   flex: 1;
+   /* width: 10px; */
+   height: 10px;
+}
+.signatureWarp {
+   /* position: absolute; */
+   /* bottom: 40px; */
+   /* right: 40px; */
+   /* width: 100%; */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 15px;
+}
+
+.signatureDate {
+   margin-bottom: 70px;
+   font-size: 0.875rem;
+   /* font-size: 14; */
+}
+
+.signatureName {
+   font-style: italic;
+}
+.listItem {
+   list-style: none;
+   box-sizing: border-box;
+   padding-left: 0;
+   margin-top: 5px;
+}
+.itemTitle {
+   color: #b8c523;
+   font-size: 0.9375rem;
+   /* font-size: 15px; */
+   padding-left: 30px;
+}
+
+.issueWarp {
+   width: 100%;
+   font-size: 1.125rem;
+   /* font-size: 18px; */
+   font-weight: 700;
+   box-sizing: border-box;
+   margin: 5px;
+   padding-left: 40px;
+}
+
+.auth {
+   position: absolute;
+   bottom: 4px;
+   left: 4px;
+   font-style: italic;
+   font-size: 0.875rem;
+   /* font-size: 14px; */
+   color: #ccc;
+}
+.time {
+   /* position: absolute; */
+   bottom: 4px;
+   right: 18px;
+   font-style: italic;
+   font-size: 0.875rem;
+   /* font-size: 14px; */
+   color: #ccc;
+}
+
+
+/*  */
+
+.table{
+   width: 96%;
+   margin: 0.5rem 0.5rem  0.1rem 1rem;
+   padding: 0;
+   border-spacing:0px;
+   border-color:#333;
+   text-align: center;
+   border-collapse: collapse;
+   border-color: #333;
+}
+
+.tableCaption{
+   text-align: left;
+   font-size: 1.0rem;
+   font-weight: 500;
+   padding-bottom: 0.3rem;
+   border-spacing: 0;
+   border: 0
+}
+
+.tableTitle{
+   font-size: 0.9rem;
+   font-weight: 500;
+   padding: 0.2rem 0;
+   border: 1px solid #333
+}
+.tableContent{
+   font-size: 0.9rem;
+   border: 1px solid #333;
+   padding: 0.2rem 
+
+}
+.tableChild{
+   width: 100%;
+   /* margin: 0.5rem 0.5rem  0.1rem 1rem; */
+   padding: 0;
+   border-spacing:0px;
+   border-color:#ccc;text-align: center;
+   border-collapse:collapse;
+   align-items: start;
+}
+.tableTitleChild{
+   font-size: 0.8rem;
+   font-weight: 450;
+   padding: 0.1rem 0;
+}
+.tableContentChild{
+   font-size: 0.7rem;
+   padding: 0.2rem 0.1rem;
+}
+
+.tableSignContent{
+   min-height: 4rem;
+   height: fit-content;
+   padding: 0.5rem;
+
+}
+
+
+.signWrap{
+   width: 100%;
+   padding: 0;
+   margin: 0;
+   
+}
+/* ! Ky xac nhan */
+
+.tableSignContentIDConfirm{
+
+   display:flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   height: 1.5rem;
+   margin: 0.3rem
+
+}
+
+.tableSignContentIDConfirm .IDConfirmInput{
+   /* width: 50%; */
+   height: 100%;
+   border: 1px solid #333;
+   flex: 1;
+   text-align: right;
+   color: rgb(0, 4, 255);
+}
+
+.tableSignContentIDConfirm .IDConfirmButton{
+   width: 5rem;
+   height: 100%;
+   background-color: #f85a5a;
+   margin: 0 0.5rem;
+   border: #da6262 1px solid;
+   box-shadow: 1px 1px 5px #883939;
+   cursor: pointer;
+   user-select: none;
+   
+}
+
+.tableSignContentText{
+   font-size: 0.8rem;
+   padding: 0.1rem 0.1rem;
+   font-style: italic;
+   color: gray;
+   
+
+}
+
+.tableSignContentLoginConfirm{
+   /* width: 100%; */
+   height: 1.5rem;
+
+   background-color: #6df85a;
+   margin: 0 0.5rem;
+   border: #5db66c 1px solid;
+   box-shadow: 1px 1px 5px #2d633a;
+   cursor: pointer;
+   user-select: none;
+   text-decoration: none;
+   font-size: 0.9rem;
+}
+.LoginConfirmButton{
+   /* width: 5rem; */
+   min-width: 8rem;
+   height: auto;
+   background-color: #f85a5a;
+   margin: 10% 0.5rem 0 0.5rem;
+   
+   border: #da6262 1px solid;
+   box-shadow: 1px 1px 5px #883939;
+   cursor: pointer;
+   user-select: none;
+   color: white;
+   
+}
+.LoginConfirmButton:active,.IDConfirmButton:active ,.tableSignContentLoginConfirm:active{
+   opacity: 0.5;
+}
+
+.LoginConfirmLetter{
+   font-size: 0.7rem;
+   color: rgb(173, 171, 171);
+   font-style: italic;
+   display: block;
+}

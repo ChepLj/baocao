@@ -35,7 +35,7 @@ export default function LoginLayout() {
                'user',
                JSON.stringify({
                   displayName: 'Admin',
-                  email: 'none',
+                  email: 'permission',
                   providerData: [{ providerId: 'manual' }],
                   photoURL: adminIcon,
                }),

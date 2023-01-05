@@ -44,14 +44,14 @@
 }
 
 .title {
-   font-size: 1.75rem;
+   font-size: 1.5rem;
    /* font-size: 28px; */
    font-weight: 600;
    color: #20ae95;
 }
 
 .user {
-   font-size: 1.125rem;
+   font-size: 1rem;
    /* font-size: 18px; */
    margin-bottom: 25px;
    color: rgb(205, 27, 228);
@@ -60,7 +60,7 @@
 
 .list {
    width: 100%;
-   font-size: 1.125rem;
+   font-size: 1rem;
    /* font-size: 18px; */
    font-weight: 700;
    box-sizing: border-box;
@@ -68,7 +68,7 @@
 }
 
 .item {
-   font-size: 0.875rem;
+   font-size: 0.75rem;
    /* font-size: 14px; */
    font-weight: 500;
    list-style: circle;
@@ -113,15 +113,15 @@
    margin-top: 5px;
 }
 .itemTitle {
-   color: #b8c523;
-   font-size: 0.9375rem;
+   color: #79151a;
+   font-size: 0.8rem;
    /* font-size: 15px; */
    padding-left: 30px;
 }
 
 .issueWarp {
    width: 100%;
-   font-size: 1.125rem;
+   font-size: 1rem;
    /* font-size: 18px; */
    font-weight: 700;
    box-sizing: border-box;

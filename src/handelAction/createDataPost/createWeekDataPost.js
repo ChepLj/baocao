@@ -2,7 +2,7 @@ import { update } from 'firebase/database'
 import { dbRT } from '../../firebase/firebaseConfig'
 import { getFirebaseData } from '../getFirebaseData'
 
-export default function createDataPost(callBack) {
+export default function createWeekDataPost(callBack) {
    const jobElm = document.querySelectorAll('.create-job')
    const issueElm = document.querySelectorAll('.create-issue')
    const planElm = document.querySelectorAll('.create-plan')
@@ -52,7 +52,7 @@ export default function createDataPost(callBack) {
       const temp = value.getElementsByTagName('p')
       const text = temp[0].innerText.trim()
       if (!(text === '')) {
-         job.push(text)
+         plan.push(text)
       }
    }
    //////////
@@ -60,7 +60,7 @@ export default function createDataPost(callBack) {
       const temp = value.getElementsByTagName('p')
       const text = temp[0].innerText.trim()
       if (!(text === '')) {
-         job.push(text)
+         propose.push(text)
       }
    }
    ////////////
@@ -78,7 +78,7 @@ export default function createDataPost(callBack) {
    job.length >= 1 ? (result.job = job) : (result.job = ['...'])
    plan.length >= 1 ? (result.plan = plan) : (result.plan = ['...'])
    propose.length >= 1 ? (result.propose = propose) : (result.propose = ['...'])
-
+   result.status = ['normal']
    result.issue = issue
    // result.job = job
    // result.plan = plan

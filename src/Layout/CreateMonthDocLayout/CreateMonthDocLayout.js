@@ -56,6 +56,7 @@ export default function CreateMonthDocLayout() {
                </div>
                <JobWrite />
                <IssueWrite />
+               <EquipmentUseWrite />
                <PlanWrite />
                <ProposeWrite />
             </section>
@@ -74,7 +75,7 @@ function JobWrite() {
       const array = [...state, state[state.length - 1] + 1]
       setState(array)
    }
-   const handelDeleteJobField = (index) => {
+   const handelDeleteEquipmentField = (index) => {
       const arrayNode = document.querySelectorAll(`.create-job`)
       for (const item of arrayNode) {
          if (item.dataset.jobIndex === index) {
@@ -118,7 +119,7 @@ function JobWrite() {
                      <span
                         className={`material-symbols-outlined ${style.fieldJobItemDelete}`}
                         onClick={(e) => {
-                           handelDeleteJobField(e.target.dataset.index)
+                           handelDeleteEquipmentField(e.target.dataset.index)
                         }}
                         data-index={index}
                      >
@@ -346,8 +347,83 @@ function ProposeWrite() {
       </div>
    )
 }
-/////////////////handel even///////////////////////
+/////////////////
+function EquipmentUseWrite() {
+   const [state, setState] = useState([1])
 
-///////////////////////
+   const handelAddEquipmentField = () => {
+      const array = [...state, state[state.length - 1] + 1]
+      setState(array)
+   }
+   const handelDeleteEquipmentField = (index) => {
+      const arrayNode = document.querySelectorAll(`.create-equip`)
+      for (const item of arrayNode) {
+         if (item.dataset.jobIndex === index) {
+            return item.remove()
+         }
+      }
+   }
+   return (
+      <div className={style.fieldJobWarp}>
+         <div className={style.fieldJobTitle}>Vật tư đã sử dụng</div>
+         <ul className={style.fieldJobList}>
+            {state.map((crr, index) => {
+               return (
+                  <li
+                     className={`${style.fieldIssueItem} create-equip`}
+                     key={index}
+                     data-job-index={index}
+                  >
+                     <div className={style.fieldJobItemTitle}>Vật tư</div>
+                     <div className={style.fieldIssueItemContentWarp}>
+                        <div className={style.fieldJobItemWarp2}>
+                           <span className={style.fieldIssueItemTitleChild}>Mã vật tư</span>
+                           <p
+                              className={style.fieldJobItemInput}
+                              data-equip-input="IDCode"
+                              // data-job-input={index}
+                              contentEditable="true"
+                           />
+                        </div>
+                        <div className={style.fieldJobItemWarp2}>
+                           <span className={style.fieldIssueItemTitleChild}>Tên vật tư*</span>
+                           <p
+                              className={style.fieldJobItemInput}
+                              // data-job-input={index}
+                              data-equip-input="name"
+                              contentEditable="true"
+                           />
+                        </div>
+                        <div className={style.fieldJobItemWarp2}>
+                           <span className={style.fieldIssueItemTitleChild}>Số lượng*</span>
+                           <p
+                              className={style.fieldJobItemInput}
+                              // data-job-input={index}
+                              data-equip-input="amount"
+                              contentEditable="true"
+                           />
+                        </div>
+                     </div>
 
-function handelDeleteField() {}
+                     <span
+                        className={`material-symbols-outlined ${style.fieldJobItemDelete}`}
+                        onClick={(e) => {
+                           handelDeleteEquipmentField(e.target.dataset.index)
+                        }}
+                        data-index={index}
+                     >
+                        delete
+                     </span>
+                  </li>
+               )
+            })}
+
+            <div className={style.addJobWrap} onClick={handelAddEquipmentField}>
+               <div className={style.addJobWrapText}>Thêm Vật Tư </div>
+               <span className="material-symbols-outlined">add</span>
+            </div>
+         </ul>
+      </div>
+   )
+}
+/////////////////

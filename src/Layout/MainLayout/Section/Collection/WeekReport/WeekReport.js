@@ -74,7 +74,7 @@ function ElementDoc({ data, authEmailCurrent }) {
                <span className={style.userName}>{data.user}</span>
                <div className={style.time}>{data.date.timestamp}</div>
             </div>
-            {data.authEmail === authEmailCurrent && (
+            {(data.authEmail === authEmailCurrent || authEmailCurrent === 'permission') && (
                <span
                   className={`${style.delete} material-symbols-outlined `}
                   onClick={(event) => {

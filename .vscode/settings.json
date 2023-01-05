@@ -1,0 +1,19 @@
+{
+    "cSpell.words": [
+        "công",
+        "cuối",
+        "Điện",
+        "LUYỆN",
+        "Ngày",
+        "phần",
+        "PHÔI",
+        "Pomina",
+        "Tháng",
+        "THÉP",
+        "trong",
+        "việc"
+    ],
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 4000
+    }
+}

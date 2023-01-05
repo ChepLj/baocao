@@ -14,6 +14,7 @@
    color: #333;
    display: flex;
    align-items: center;
+   justify-content: center;
    padding: 0 10px;
 }
 .user {
@@ -200,14 +201,63 @@
    font-weight: 600;
    color: #4ce930;
 }
-.optionMonth {
+.date {
    font-size: 20px;
    font-weight: 600;
+   padding: 0 8px;
    color: #dc5907;
+   line-height: 20px;
+   
 }
 
 /* descriptionArea */
 .descriptionArea {
    border-left: 1px solid rgb(147, 147, 147);
    flex: 1;
+   height: 85vh;
+   overflow-y: scroll;
+   scrollbar-width: thin;
+}
+
+.space10{
+   padding: 10px
+}
+.space5{
+   padding: 5px
+}
+
+.spaceLR10{
+   padding: 0 10px
+}
+.spaceLR5{
+   padding: 0 5px
+}
+.spaceLR2dot5{
+   padding: 0 2.5px
+}
+.redColor {
+   color:red;
+}
+
+.fieldEquipHandOverItem{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 3px 0;
+}
+
+.fieldEquipHandOverWrap{
+   list-style: none;
+   margin: 5px 0 14px 0;
+   padding-bottom: 5px;
+   display: flex;
+   flex-direction: column;
+   align-items: top;
+   border-bottom: 1px solid rgb(120, 119, 119);
+}
+
+.unit{
+   min-width: 50px;
+   text-align: left;
 }

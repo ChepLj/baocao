@@ -83,6 +83,7 @@ export default function Filter({ user, callback }) {
    useEffect(() => {
       const nodeListTypeFilter = document.querySelectorAll(`.${style.buttonTypeFilter}`)
       const nodeListUserFilter = document.querySelectorAll(`.${style.buttonUserFilter}`)
+    
       for (const value of nodeListTypeFilter) {
          value.addEventListener('click', (e) => {
             handelEvenTypeClick(e.target)

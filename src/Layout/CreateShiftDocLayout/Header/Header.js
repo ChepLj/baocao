@@ -17,26 +17,27 @@ export default function Header({ auth }) {
       const proposeElm = document.querySelectorAll('.create-propose')
       const collectElm = [...jobElm, ...planElm, ...proposeElm]
 
-      for (const item of issueElm) {
-         const pTagInput = item.getElementsByTagName('p')
-         for (const item of pTagInput) {
-            if (item.innerText.trim() === '') {
-               alert('LỖI ! Trường sự cố phải điền đẩy đủ tất cả thông tin !!!')
-               return false
-            }
-         }
-      }
-      /////////////// Check dữ liệu trống
-      for (const item of collectElm) {
-         const pTagInput = item.getElementsByTagName('p')
-         for (const item of pTagInput) {
-            if (!(item.innerText.trim() === '')) {
-               return true
-            }
-         }
-      }
-      ////////////////
-      alert('LỖI ! Phải điền ít nhất 1 trường')
+      // for (const item of issueElm) {
+      //    const pTagInput = item.getElementsByTagName('p')
+      //    for (const item of pTagInput) {
+      //       if (item.innerText.trim() === '') {
+      //          alert('LỖI ! Trường sự cố phải điền đẩy đủ tất cả thông tin !!!')
+      //          return false
+      //       }
+      //    }
+      // }
+      // /////////////// Check dữ liệu trống
+      // for (const item of collectElm) {
+      //    const pTagInput = item.getElementsByTagName('p')
+      //    for (const item of pTagInput) {
+      //       if (!(item.innerText.trim() === '')) {
+      //          return true
+      //       }
+      //    }
+      // }
+      // ////////////////
+      // alert('LỖI ! Phải điền ít nhất 1 trường')
+      return true
    }
    /////////
    return (
@@ -67,9 +68,10 @@ export default function Header({ auth }) {
          {/* ẩn hiện Save Modal */}
          {state && (
             <SaveModal
+               type={'shiftReport'}
                callBackClose={(value) => {
                   // setState(value)
-                  window.location.href = '/create'
+                  window.location.href = '/'
                }}
             />
          )}

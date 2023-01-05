@@ -15,7 +15,7 @@
    align-items: top;
    justify-content: space-between;
    border-bottom: 1px solid#333;
-
+   width: 100%;
    margin: 0 7px 10px 7px;
 }
 
@@ -40,18 +40,19 @@
    width: 70%;
    height: auto;
    padding-bottom: 3px;
+   
 }
 
 .title {
    /* font-size: 28px; */
-   font-size: 1.75rem;
+   font-size: 1.5rem;
    font-weight: 600;
    color: #20ae95;
 }
 
 .user {
    /* font-size: 18px; */
-   font-size: 1.125rem;
+   font-size: 1rem;
    margin-bottom: 25px;
    color: rgb(205, 27, 228);
    font-style: italic;
@@ -59,7 +60,7 @@
 
 .list {
    width: 100%;
-   font-size: 1.125rem;
+   font-size: 1rem;
    /* font-size: 18px; */
    font-weight: 700;
    box-sizing: border-box;
@@ -68,7 +69,7 @@
 
 .item {
    /* font-size: 14px; */
-   font-size: 0.875rem;
+   font-size: 0.75rem;
    font-weight: 500;
    list-style: circle;
    margin: 5px 10px 10px 35px;
@@ -120,7 +121,7 @@
 
 .issueWarp {
    width: 100%;
-   font-size: 1.125rem;
+   font-size: 1rem;
    /* font-size: 18px; */
    font-weight: 700;
    box-sizing: border-box;

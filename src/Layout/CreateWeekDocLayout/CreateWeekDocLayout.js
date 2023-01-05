@@ -14,6 +14,7 @@ export default function CreateWeekDocLayout() {
       window.location.href = '/login'
    }
    ////////
+
    return (
       <section className={style.warpPage}>
          <Header auth={auth} />
@@ -55,6 +56,9 @@ export default function CreateWeekDocLayout() {
                      })}
                   </select>{' '}
                </div>
+               <i style={{ fontSize: '0.8rem' }}>
+                  (Ngày đầu tiên của Tuần 1 sẽ là Thứ 2 đầu tiên của tháng)
+               </i>
                <JobWrite />
                <IssueWrite />
                <PlanWrite />
