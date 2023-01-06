@@ -23,8 +23,8 @@
 
 .form {
    position: absolute;
-   width: 65vh;
-   height: 90vh;
+   width: 40rem;
+   height: 98.5vh;
    background-color: white;
 }
 .areaPrint {
@@ -34,9 +34,10 @@
 .close {
    color: red;
    position: absolute;
-   top: -25px;
-   right: 0;
+   top: 0;
+   right: -60px;
    cursor: pointer;
+ 
 }
 
 .downloadPDF {

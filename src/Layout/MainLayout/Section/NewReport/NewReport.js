@@ -139,7 +139,7 @@ function ElementShiftDoc({ data }) {
 
                Báo cáo CA{' '}
                <span className={style.shift}>
-                  {data.user}
+                  {data.shift}
                </span>
                <div  className={style.timeWrap}>
                <span className={style.session}>{data.date.session} </span>

@@ -62,12 +62,14 @@ export default function createShiftDataPost(callBack) {
    }
    ////////////
    for (const value of issueElm) {
+      const area =  value.querySelector('select[name=shiftAreaSelect]').value
       const temp = [...value.getElementsByTagName('p')] // rải để sử dụng với map()
       const result = {}
       temp.forEach((crr, index) => {
          const title = crr.dataset.issueInput
          result[title] = crr.innerText
       })
+      result['area'] = area
       issue.push(result)
    }
    ////////////
@@ -109,7 +111,8 @@ export default function createShiftDataPost(callBack) {
    result.status = ['normal']
    result.equipmentUsed = equip
    result.authEmail = authEmail
-   result.user = shift
+   result.user = "Ca " + shift
+   result.shift = shift
    result.date = { session: session ,date: date ,month: month, year: year, timestamp: timeStamp }
    // console.log(result)
    const ref = `Report/ShiftReport/${Date.now()}`
@@ -136,6 +139,7 @@ function updateDataFirebase(ref, objectData) {
    objectDataNew.ref = ref
    
    objectDataNew.user = objectData.user
+   objectDataNew.shift = objectData.shift
    objectDataNew.date = objectData.date
    objectDataNew.type = 'shiftReport'
    updates[`NewReport/${Date.now()}`] = objectDataNew

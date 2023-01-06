@@ -176,7 +176,7 @@ function IssueWrite() {
 
 function IssueWriteElement({ index, callBack }) {
    return (
-      <li className={`${style.fieldIssueItem} create-issue`} data-issue-index={index}>
+      <li className={`${style.fieldIssueItem} create-issue`} data-issue-index={index}  >
          <div className={style.fieldIssueItemTitle}>Công việc</div>
          <div className={style.fieldIssueItemContentWarp}>
             {/*  */}
@@ -189,9 +189,47 @@ function IssueWriteElement({ index, callBack }) {
                />
             </div>
             <div className={style.fieldIssueItemContentWarpItem}>
+               <div className={style.fieldIssueItemTitleChild}>Khu vực</div>
+               <select style={{margin: '0 2rem 0 2rem'}} name="shiftAreaSelect">
+                  <option value={'BF'}>BF</option>
+                  <option value={'Lò Vôi'}>Lò Vôi</option>
+                  <option value={'Máng Quặng'}>Máng Quặng</option>
+                  <option value={'Đỉnh lò'}>Đỉnh lò</option>
+                  <option value={'Lò gió nóng'}>Lò gió nóng</option>
+                  <option value={'Nhà Quạt'}>Nhà Quạt</option>
+                  <option value={'Đúc gang'}>Đúc gang</option>
+                  <option value={'Phun Than'}>Phun Than</option>
+                  <option value={'XLB BFTrough'}>XLB BFTrough</option>
+                  <option value={'XLB Sàn ra gang'}>XLB Sàn ra gang</option>
+                  <option value={'XLB Đúc Gang'}>XLB Đúc Gang</option>
+                  <option value={'XLB Khí CO'}>XLB Khí CO</option>
+                  <option value={'XLN Xỉ'}>XLN Xỉ</option>
+                  <option value={'XLN Chính'}>XLN Chính</option>
+                  <option value={'XLN Đúc gang'}>XLN Đúc gang</option>
+                  <option value={'Trạm cân gang '}>Trạm cân gang</option>
+                  <option value={'Nhà Vàng'}>Nhà Vàng</option>
+                  <option value={'Trạm điện'}>Trạm điện</option>
+                  <option value={'Cẩu 125t'}>Cẩu 125t</option>
+                  <option value={'Cẩu hố xỉ'}>Cẩu hố xỉ</option>
+                  <option value={'Cẩu sàn ra gang'}>Cẩu sàn ra gang</option>
+                  <option value={'Cẩu kho than'}>Cẩu kho than</option>
+                  <option value={'Cẩu nhà quạt'}>Cẩu nhà quạt</option>
+                  <option value={'Tháp đốt'}>Tháp đốt</option>
+                  <option value={'Lò trộn'}>Lò trộn</option>
+                  <option value={'Other'}>Khác...</option>
+               </select>
+               {/* <p
+                  className={style.fieldIssueItemInput}
+                  style={{flex:5} }
+                  data-issue-input="time"
+                  // contentEditable="true"
+                  //! Chua làm chức năng nhập khu vực khác
+               /> */}
+               
                <div className={style.fieldIssueItemTitleChild}>Thời gian xử lý</div>
                <p
                   className={style.fieldIssueItemInput}
+                  style={{flex:2} }
                   data-issue-input="time"
                   contentEditable="true"
                />

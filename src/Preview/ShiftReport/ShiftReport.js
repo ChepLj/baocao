@@ -5,7 +5,6 @@ import { useState,useEffect } from 'react';
 import { getFirebaseData } from './../../handelAction/getFirebaseData';
 
 export default function ShiftReport({ content }) {
-   //! Chức năng in chưa hoàn thiện
    const [state, setState] = useState(content)
 
    const handelIDConfirm = (inputText) => {
@@ -14,6 +13,14 @@ export default function ShiftReport({ content }) {
          const IDList = result.val()
       
          for(const userID in IDList) {
+            console.log("🚀 ~ file: ShiftReport.js:17 ~ getFirebaseData ~ state?.authEmail", state?.authEmail)
+            console.log("🚀 ~ file: ShiftReport.js:17 ~ getFirebaseData ~ userID.email", userID.email)
+            if( IDList[userID].email == state?.authEmail)
+
+            {
+               alert('Lỗi! Email của mã định danh trùng với email tạo báo cáo, không chấp nhận Giao ca và Nhận ca cùng 1 user\n vui lòng thử lại !')
+               return //:không chấp nhận
+            }
             if (userID == inputText) {
                const confirmedCallback = (contentCallback) => {
                   // *TODO: làm chức năng render lại khi đã xác nhận thành công
@@ -69,20 +76,20 @@ export default function ShiftReport({ content }) {
          <header className={`${style.header} shift-header`}>
             <div className={`${style.headerItem} shift-headerItem`}>
                <div className={`${style.logoImg} shift-logoImg`}>{logoPomina}</div>
-               <span>NHÀ MÁY LUYỆN PHÔI THÉP</span>
+               {/* <span  style={{ fontSize: '0.7rem'}}>Nhà máy  Pomina3</span> */}
             </div>
             <div
                className={`${style.headerItem} ${style.headerItemBorderLR} shift-headerItem shift-headerItemBorderLR`}
             >
-               <span style={{ fontSize: '28px', fontWeight: 700 }}>Báo Cáo CA</span>
-               <span style={{ fontSize: '14px', fontWeight: 500 }}>Bảo Trì Điện BF </span>
+               <span style={{ fontSize: '1.5rem', fontWeight: 700 }}>Báo Cáo CA</span>
+               <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>Bảo Trì Điện BF </span>
             </div>
             <div className={`${style.headerItemInfo} shift-headerItemInfo`}>
                <div className={`${style.infoItem} shift-infoItem`}>
                   Ca
                   <span  className={`${style.infoItemChild} shift-infoItemChild`}  style={{color:'red'}} 
                   >
-                     {content?.user}
+                     {content?.shift}
                   </span>
                </div>
                <div className={`${style.infoItem} shift-infoItem`}>
@@ -116,7 +123,7 @@ export default function ShiftReport({ content }) {
                </caption>
                <thead>
                   <tr>
-                     <th className={`${style.tableTitle} shift-tableTitle`} style={{ width: '5%' }}>
+                     <th className={`${style.tableTitle} shift-tableTitle`} style={{ width: '4%' }}>
                         Stt
                      </th>
                      <th
@@ -128,13 +135,13 @@ export default function ShiftReport({ content }) {
                      <th className={`${style.tableTitle} shift-tableTitle`}>Nội dung</th>
                      <th
                         className={`${style.tableTitle} shift-tableTitle`}
-                        style={{ width: '15%' }}
+                        style={{ width: '13%' }}
                      >
                         Thời gian
                      </th>
                      <th
                         className={`${style.tableTitle} shift-tableTitle`}
-                        style={{ width: '20%' }}
+                        style={{ width: '15%' }}
                      >
                         Kết quả
                      </th>
@@ -148,7 +155,7 @@ export default function ShiftReport({ content }) {
                               {index + 1}
                            </td>
                            <td className={`${style.tableContent} shift-tableContent`}>
-                              BF, Lò Vôi
+                              {crr?.area}
                            </td>
                            <td className={`${style.tableContent} shift-tableContent`}>
                               {crr?.name}
@@ -171,7 +178,7 @@ export default function ShiftReport({ content }) {
                </caption>
                <thead >
                   <tr>
-                     <th className={`${style.tableTitle} shift-tableTitle`} style={{ width: '5%' }}>
+                     <th className={`${style.tableTitle} shift-tableTitle`} style={{ width: '4%' }}>
                         Stt
                      </th>
                      <th
@@ -208,7 +215,7 @@ export default function ShiftReport({ content }) {
                </caption>
                <thead>
                   <tr>
-                     <th className={`${style.tableTitle} shift-tableTitle`} style={{ width: '5%' }}>
+                     <th className={`${style.tableTitle} shift-tableTitle`} style={{ width: '4%' }}>
                         Stt
                      </th>
                      <th className={`${style.tableTitle} shift-tableTitle`}>Ý kiến/Đề xuất</th>
@@ -228,7 +235,7 @@ export default function ShiftReport({ content }) {
                   )
                })}
             </table>
-            <span style={{ width: '100%' }}>------------\***/ ------------</span>
+            <span style={{ width: '100%' ,fontSize: '0.6em',paddingLeft: '13px'}}>------------\***/ ------------</span>
 
             <table border="1px" className={`${style.table} shift-table`}>
                <thead>
