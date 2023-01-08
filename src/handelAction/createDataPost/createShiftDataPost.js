@@ -1,9 +1,9 @@
 import { update } from 'firebase/database'
 import { dbRT } from '../../firebase/firebaseConfig'
 import { getFirebaseData } from '../getFirebaseData'
+import getTimeAPI from '../getTime'
 
 export default function createShiftDataPost(callBack) {
-
    const equipElm = document.querySelectorAll('.create-equip')
    const issueElm = document.querySelectorAll('.create-issue')
    const orderElm = document.querySelectorAll('.create-order')
@@ -17,10 +17,9 @@ export default function createShiftDataPost(callBack) {
    const issue = []
    const order = []
    const propose = []
-   const today = new Date()
-   const monthStamp = today.getMonth() + 1 >= 10 ? today.getMonth() + 1 : `0${today.getMonth() + 1}`
-   const dateStamp = today.getDate() >= 10 ? today.getDate() : `0${today.getDate()}`
-   const timeStamp = `${today.getFullYear()}-${monthStamp}-${dateStamp}`
+
+   let timeStamp = ''
+
    // tạo biến để tạo  giá trị upload
    let date = 0
    let month = 0
@@ -29,6 +28,7 @@ export default function createShiftDataPost(callBack) {
    let session = ''
    let result = {}
    let authEmail = 'none'
+
    if (sessionStorage.getItem('user')) {
       const temp = JSON.parse(sessionStorage.getItem('user'))
       authEmail = temp.email
@@ -51,7 +51,7 @@ export default function createShiftDataPost(callBack) {
          shift = value.value
       }
    }
- 
+
    //////////
    for (const value of proposeElm) {
       const temp = value.getElementsByTagName('p')
@@ -62,7 +62,7 @@ export default function createShiftDataPost(callBack) {
    }
    ////////////
    for (const value of issueElm) {
-      const area =  value.querySelector('select[name=shiftAreaSelect]').value
+      const area = value.querySelector('select[name=shiftAreaSelect]').value
       const temp = [...value.getElementsByTagName('p')] // rải để sử dụng với map()
       const result = {}
       temp.forEach((crr, index) => {
@@ -105,32 +105,44 @@ export default function createShiftDataPost(callBack) {
    }
    ////////////
    propose.length >= 1 ? (result.propose = propose) : (result.propose = ['...'])
-   result.order= order
-   result.handover = handover
-   result.issue = issue
+   order.length >= 1 ? (result.order = order) : (result.order = ['...'])
+   handover.length >= 1 ? (result.handover = handover) : (result.handover = ['...'])
+   issue.length >= 1 ? (result.issue = issue) : (result.issue = ['...'])
+   equip.length >= 1 ? (result.equipmentUsed = equip) : (result.equipmentUsed = ['...'])
+   // result.order = order
+   // result.handover = handover
+   // result.issue = issue
+   // result.equipmentUsed = equip
    result.status = ['normal']
-   result.equipmentUsed = equip
    result.authEmail = authEmail
-   result.user = "Ca " + shift
+   result.user = 'Ca ' + shift
    result.shift = shift
-   result.date = { session: session ,date: date ,month: month, year: year, timestamp: timeStamp }
-   // console.log(result)
-   const ref = `Report/ShiftReport/${Date.now()}`
-   updateDataFirebase(ref, result).then(() => {
-      getFirebaseData(ref)
-         .then((result) => {
-            console.log("🚀 ~ file: createShiftDataPost.js:118 ~ .then ~ result", result.val())
-            callBack(result.val())
-         })
-         .catch((error) => {
-            alert(error)
-         })
-   })
+   result.date = { session: session, date: date, month: month, year: year, timestamp: timeStamp }
+
+  
+   //TODO: upload khi đã lấy được thời
+   function upload({dataStamp, monthStamp, yearStamp, nowInMillisecond,timeStamp}) {
+      result.date.timestamp = timeStamp
+      const ref = `Report/ShiftReport/${nowInMillisecond}`
+      updateDataFirebase(ref, result,nowInMillisecond).then(() => {
+         getFirebaseData(ref)
+            .then((result) => {
+               console.log('🚀 ~ file: createShiftDataPost.js:118 ~ .then ~ result', result.val())
+               callBack(result.val())
+            })
+            .catch((error) => {
+               alert(error)
+            })
+      })
+   }
+   //! Upload
+
+   getTimeAPI(upload) //:goi API để lấy thời gian, sau đó return 1 callback
    return true
 }
-////////////
+/////////////////////////////////////////////////////
 
-function updateDataFirebase(ref, objectData) {
+function updateDataFirebase(ref, objectData,nowInMillisecond) {
    objectData['ref'] = ref
    const updates = {}
    updates[ref] = objectData
@@ -142,7 +154,7 @@ function updateDataFirebase(ref, objectData) {
    objectDataNew.shift = objectData.shift
    objectDataNew.date = objectData.date
    objectDataNew.type = 'shiftReport'
-   updates[`NewReport/${Date.now()}`] = objectDataNew
+   updates[`NewReport/${nowInMillisecond}`] = objectDataNew
 
 
    return update(dbRT, updates)

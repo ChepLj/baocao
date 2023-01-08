@@ -1,62 +1,61 @@
-import style from './CreateShiftDocLayout.module.css'
-import Header from './Header/Header'
-import { useLocation } from 'react-router-dom'
-import { useEffect, useRef, useState } from 'react'
-import { getFirebaseData } from '../../handelAction/getFirebaseData'
+import style from './CreateShiftDocLayout.module.css';
+import Header from './Header/Header';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { getFirebaseData } from '../../handelAction/getFirebaseData';
+import getTimeAPI from './../../handelAction/getTime';
 
 export default function CreateShiftDocLayout() {
-   let location = useLocation() //dùng useLocation để lấy prop
+   let location = useLocation(); //dùng useLocation để lấy prop
    const [handoverEquip, setHandoverEquip] = useState([]);
 
-   const user = location.state.user
-   const today = new Date()
-   const date = [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
-      27, 28, 29, 30, 31,
-   ]
-   const month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-   const year = [2022, 2023, 2024, 2025]
-   let auth = {}
+   const user = location.state.user;
+
+   const date = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+   const month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+   const year = [2022, 2023, 2024, 2025];
+   let auth = {};
    if (sessionStorage.getItem('user')) {
-      auth = JSON.parse(sessionStorage.getItem('user'))
+      auth = JSON.parse(sessionStorage.getItem('user'));
    } else {
-      window.location.href = '/login'
+      window.location.href = '/login';
    }
    ////////
-   useEffect(() => {
-      const timeElm = document.getElementsByTagName('select')
+   function setTime({ dateStamp, monthStamp, yearStamp, hourStamp, timeStamp }) {
+      const timeElm = document.getElementsByTagName('select');
+
       //gán ngày tự động
       for (const Elm of timeElm) {
-         if (Elm.name === 'shiftDateReport') {
-            Elm.value = today.getDate()
-         }
          if (Elm.name === 'shiftMonthReport') {
-            Elm.value = today.getMonth() + 1
-         }
-         if (Elm.name === 'shiftYearReport') {
-            Elm.value = today.getFullYear()
+            Elm.value = monthStamp;
+         } else if (Elm.name === 'shiftYearReport') {
+            Elm.value = yearStamp;
+         } else if (Elm.name === 'shiftDateReport') {
+            hourStamp >= 8 && hourStamp <= 20 ? (Elm.value = dateStamp) : dateStamp == 1 ? (Elm.value = dateStamp) : (Elm.value = dateStamp - 1);
+            // Elm.value = today.getDate()
+            const sessionElm = document.querySelector('select[name=shiftSessionReport]');
+            hourStamp >= 8 && hourStamp <= 20 ? (sessionElm.value = 'Ca Ngày') : (sessionElm.value = 'Ca Đêm');
          }
       }
-   }, [])
+   }
+   //////////////////
+
+   useEffect(() => {
+      getTimeAPI(setTime);
+   }, []);
    ///////////
-  
-   useEffect(()=>{
-       // TODO: goi lên firebase để lấy vật tu bàn giao của ca trước
-      getFirebaseData('ShiftEquipHandover').then(data => {
-         
-         const dataResults = data.val()
-         const initHandoverEquip = []
+
+   useEffect(() => {
+      // TODO: goi lên firebase để lấy vật tu bàn giao của ca trước
+      getFirebaseData('ShiftEquipHandover').then((data) => {
+         const dataResults = data.val();
+         const initHandoverEquip = [];
          for (const item in dataResults) {
-            initHandoverEquip.push([
-               dataResults[item]?.name,
-               dataResults[item]?.amount,
-               dataResults[item]?.unit,
-            ]) //:chuyển qua dạng mảng
+            initHandoverEquip.push([dataResults[item]?.name, dataResults[item]?.amount, dataResults[item]?.unit]); //:chuyển qua dạng mảng
          }
-         setHandoverEquip(initHandoverEquip)
-      	
-      })
-   },[])
+         setHandoverEquip(initHandoverEquip);
+      });
+   }, []);
    return (
       <section className={style.warpPage}>
          <Header auth={auth} />
@@ -88,7 +87,7 @@ export default function CreateShiftDocLayout() {
                            <option value={crr} key={index}>
                               {crr}
                            </option>
-                        )
+                        );
                      })}
                   </select>
                   <span className={style.spaceLR2dot5}></span>
@@ -100,7 +99,7 @@ export default function CreateShiftDocLayout() {
                            <option value={crr} key={index}>
                               {crr}
                            </option>
-                        )
+                        );
                      })}
                   </select>
                   <span className={style.spaceLR2dot5}></span>
@@ -112,7 +111,7 @@ export default function CreateShiftDocLayout() {
                            <option value={crr} key={index}>
                               {crr}
                            </option>
-                        )
+                        );
                      })}
                   </select>
                </div>
@@ -124,29 +123,29 @@ export default function CreateShiftDocLayout() {
             </section>
             <section className={`${style.descriptionArea} ${style.space10} `}>
                Vật tư, thiết bị bàn giao
-               <EquipmentHandover handoverEquip={handoverEquip}/>
+               <EquipmentHandover handoverEquip={handoverEquip} />
             </section>
          </section>
       </section>
-   )
+   );
 }
 
 /////////////////////
 function IssueWrite() {
-   const [state, setState] = useState([1])
+   const [state, setState] = useState([1]);
 
    const handelAddIssueField = () => {
-      const array = [...state, state[state.length - 1] + 1]
-      setState(array)
-   }
+      const array = [...state, state[state.length - 1] + 1];
+      setState(array);
+   };
    const handelDeleteIssueField = (index) => {
-      const arrayNode = document.querySelectorAll(`.create-issue`)
+      const arrayNode = document.querySelectorAll(`.create-issue`);
       for (const item of arrayNode) {
          if (item.dataset.issueIndex === index) {
-            return item.remove()
+            return item.remove();
          }
       }
-   }
+   };
    return (
       <div className={style.fieldIssueWarp}>
          <div className={style.fieldIssueTitle}>Công việc/ Sự cố trong CA</div>
@@ -158,10 +157,10 @@ function IssueWrite() {
                      key={index}
                      index={index}
                      callBack={(indexFB) => {
-                        handelDeleteIssueField(indexFB)
+                        handelDeleteIssueField(indexFB);
                      }}
                   />
-               )
+               );
             })}
 
             {/*  */}
@@ -171,26 +170,22 @@ function IssueWrite() {
             </div>
          </ul>
       </div>
-   )
+   );
 }
 
 function IssueWriteElement({ index, callBack }) {
    return (
-      <li className={`${style.fieldIssueItem} create-issue`} data-issue-index={index}  >
+      <li className={`${style.fieldIssueItem} create-issue`} data-issue-index={index}>
          <div className={style.fieldIssueItemTitle}>Công việc</div>
          <div className={style.fieldIssueItemContentWarp}>
             {/*  */}
             <div className={style.fieldIssueItemContentWarpItem}>
                <div className={style.fieldIssueItemTitleChild}>Tên đầu việc*</div>
-               <p
-                  className={style.fieldIssueItemInput}
-                  data-issue-input="name"
-                  contentEditable="true"
-               />
+               <p className={style.fieldIssueItemInput} data-issue-input="name" contentEditable="true" />
             </div>
             <div className={style.fieldIssueItemContentWarpItem}>
                <div className={style.fieldIssueItemTitleChild}>Khu vực</div>
-               <select style={{margin: '0 2rem 0 2rem'}} name="shiftAreaSelect">
+               <select style={{ margin: '0 2rem 0 2rem' }} name="shiftAreaSelect">
                   <option value={'BF'}>BF</option>
                   <option value={'Lò Vôi'}>Lò Vôi</option>
                   <option value={'Máng Quặng'}>Máng Quặng</option>
@@ -225,89 +220,66 @@ function IssueWriteElement({ index, callBack }) {
                   // contentEditable="true"
                   //! Chua làm chức năng nhập khu vực khác
                /> */}
-               
+
                <div className={style.fieldIssueItemTitleChild}>Thời gian xử lý</div>
-               <p
-                  className={style.fieldIssueItemInput}
-                  style={{flex:2} }
-                  data-issue-input="time"
-                  contentEditable="true"
-               />
+               <p className={style.fieldIssueItemInput} style={{ flex: 2 }} data-issue-input="time" contentEditable="true" />
             </div>
             {/*  */}
             {/*  */}
             <div className={style.fieldIssueItemContentWarpItem}>
                <div className={style.fieldIssueItemTitleChild}>Chi tiết</div>
-               <p
-                  className={style.fieldIssueItemInput}
-                  data-issue-input="content"
-                  contentEditable="true"
-               />
+               <p className={style.fieldIssueItemInput} data-issue-input="content" contentEditable="true" />
             </div>
             {/*  */}
             <div className={style.fieldIssueItemContentWarpItem}>
                <div className={style.fieldIssueItemTitleChild}>Biện pháp khắc phục</div>
-               <p
-                  className={style.fieldIssueItemInput}
-                  data-issue-input="solution"
-                  contentEditable="true"
-               />
+               <p className={style.fieldIssueItemInput} data-issue-input="solution" contentEditable="true" />
             </div>
             {/*  */}
             {/*  */}
             <div className={style.fieldIssueItemContentWarpItem}>
-               <div className={`${style.fieldIssueItemTitleChild} ${style.redColor}`}>
-                  Kết quả/ Ghi chú CA sau*
-               </div>
-               <p
-                  className={style.fieldIssueItemInput}
-                  data-issue-input="result"
-                  contentEditable="true"
-               />
+               <div className={`${style.fieldIssueItemTitleChild} ${style.redColor}`}>Kết quả/ Ghi chú CA sau*</div>
+               <p className={style.fieldIssueItemInput} data-issue-input="result" contentEditable="true" />
             </div>
             {/*  */}
          </div>
          <span
-            className={`material-symbols-outlined ${style.fieldIssueItemDelete}`}
+            className={`material-symbols-outlined ${style.fieldJobItemDelete}`}
             onClick={(e) => {
-               callBack(e.target.dataset.index)
+               callBack(e.target.dataset.index);
             }}
             data-index={index}
          >
             delete
          </span>
       </li>
-   )
+   );
 }
 
 ///////////////////
 /////////////////
 function EquipmentUseWrite() {
-   const [state, setState] = useState([1])
+   const [state, setState] = useState([1]);
 
    const handelAddEquipmentField = () => {
-      const array = [...state, state[state.length - 1] + 1]
-      setState(array)
-   }
+      const array = [...state, state[state.length - 1] + 1];
+      setState(array);
+   };
    const handelDeleteEquipmentField = (index) => {
-      const arrayNode = document.querySelectorAll(`.create-equip`)
+      const arrayNode = document.querySelectorAll(`.create-equip`);
       for (const item of arrayNode) {
          if (item.dataset.jobIndex === index) {
-            return item.remove()
+            return item.remove();
          }
       }
-   }
+   };
    return (
       <div className={style.fieldJobWarp}>
          <div className={style.fieldJobTitle}>Vật tư đã sử dụng</div>
          <ul className={style.fieldJobList}>
             {state.map((crr, index) => {
                return (
-                  <li
-                     className={`${style.fieldIssueItem} create-equip`}
-                     key={index}
-                     data-job-index={index}
-                  >
+                  <li className={`${style.fieldIssueItem} create-equip`} key={index} data-job-index={index}>
                      <div className={style.fieldJobItemTitle}>Vật tư</div>
                      <div className={style.fieldIssueItemContentWarp}>
                         <div className={style.fieldIssueItemContentWarpItem}>
@@ -351,14 +323,14 @@ function EquipmentUseWrite() {
                      <span
                         className={`material-symbols-outlined ${style.fieldJobItemDelete}`}
                         onClick={(e) => {
-                           handelDeleteEquipmentField(e.target.dataset.index)
+                           handelDeleteEquipmentField(e.target.dataset.index);
                         }}
                         data-index={index}
                      >
                         delete
                      </span>
                   </li>
-               )
+               );
             })}
 
             <div className={style.addJobWrap} onClick={handelAddEquipmentField}>
@@ -367,55 +339,47 @@ function EquipmentUseWrite() {
             </div>
          </ul>
       </div>
-   )
+   );
 }
 /////////////////
 
 /////////////////
 function ProposeWrite() {
-   const [state, setState] = useState([1])
+   const [state, setState] = useState([1]);
 
    const handelAddProposeField = () => {
-      const array = [...state, state[state.length - 1] + 1]
-      setState(array)
-   }
+      const array = [...state, state[state.length - 1] + 1];
+      setState(array);
+   };
    const handelDeleteProposeField = (index) => {
-      const arrayNode = document.querySelectorAll(`.create-propose`)
+      const arrayNode = document.querySelectorAll(`.create-propose`);
       for (const item of arrayNode) {
          if (item.dataset.proposeIndex === index) {
-            return item.remove()
+            return item.remove();
          }
       }
-   }
+   };
    return (
       <div className={style.fieldJobWarp}>
          <div className={style.fieldJobTitle}>Ý kiến/Đề xuất</div>
          <ul className={style.fieldJobList}>
             {state.map((crr, index) => {
                return (
-                  <li
-                     className={`${style.fieldJobItem} create-propose`}
-                     key={index}
-                     data-propose-index={index}
-                  >
+                  <li className={`${style.fieldJobItem} create-propose`} key={index} data-propose-index={index}>
                      <div className={style.fieldJobItemTitle}>Đề xuất</div>
-                     <p
-                        className={style.fieldJobItemInput}
-                        data-propose-input={index}
-                        contentEditable="true"
-                     />
+                     <p className={style.fieldJobItemInput} data-propose-input={index} contentEditable="true" />
 
                      <span
                         className={`material-symbols-outlined ${style.fieldJobItemDelete}`}
                         onClick={(e) => {
-                           handelDeleteProposeField(e.target.dataset.index)
+                           handelDeleteProposeField(e.target.dataset.index);
                         }}
                         data-index={index}
                      >
                         delete
                      </span>
                   </li>
-               )
+               );
             })}
 
             <div className={style.addJobWrap} onClick={handelAddProposeField}>
@@ -424,67 +388,56 @@ function ProposeWrite() {
             </div>
          </ul>
       </div>
-   )
+   );
 }
 /////////////////
 function OrderWrite() {
-   const [state, setState] = useState([1])
+   const [state, setState] = useState([1]);
 
    const handelAddOrderField = () => {
-      const array = [...state, state[state.length - 1] + 1]
-      setState(array)
-   }
+      const array = [...state, state[state.length - 1] + 1];
+      setState(array);
+   };
    const handelDeleteOrderField = (index) => {
-      const arrayNode = document.querySelectorAll(`.create-order`)
+      console.log('🚀 ~ file: CreateShiftDocLayout.js:438 ~ handelDeleteOrderField ~ index', index);
+      const arrayNode = document.querySelectorAll(`.create-order`);
       for (const item of arrayNode) {
-         if (item.dataset.proposeIndex === index) {
-            return item.remove()
+         if (item.dataset.orderIndex === index) {
+            return item.remove();
          }
       }
-   }
+   };
    return (
       <div className={style.fieldJobWarp}>
          <div className={style.fieldJobTitle}>KSKV/ CA trước giao việc</div>
          <ul className={style.fieldJobList}>
             {state.map((crr, index) => {
                return (
-                  <li
-                     className={`${style.fieldIssueItem} create-order`}
-                     key={index}
-                     data-order-index={index}
-                  >
+                  <li className={`${style.fieldIssueItem} create-order`} key={index} data-order-index={index}>
                      <div className={style.fieldJobItemTitle}>Công việc</div>
 
                      <div className={style.fieldIssueItemContentWarp}>
                         <div className={style.fieldIssueItemContentWarpItem}>
                            <div className={style.fieldIssueItemTitleChild}>Nội dung</div>
-                           <p
-                              className={style.fieldJobItemInput}
-                              data-order-input="content"
-                              contentEditable="true"
-                           />
+                           <p className={style.fieldJobItemInput} data-order-input="content" contentEditable="true" />
                         </div>
                         <div className={style.fieldIssueItemContentWarpItem}>
                            <div className={style.fieldIssueItemTitleChild}>Người giao</div>
-                           <p
-                              className={style.fieldJobItemInput}
-                              data-order-input="people"
-                              contentEditable="true"
-                           />
+                           <p className={style.fieldJobItemInput} data-order-input="people" contentEditable="true" />
                         </div>
                      </div>
 
                      <span
                         className={`material-symbols-outlined ${style.fieldJobItemDelete}`}
                         onClick={(e) => {
-                           handelDeleteOrderField(e.target.dataset.index)
+                           handelDeleteOrderField(e.target.dataset.index);
                         }}
                         data-index={index}
                      >
                         delete
                      </span>
                   </li>
-               )
+               );
             })}
 
             <div className={style.addJobWrap} onClick={handelAddOrderField}>
@@ -493,76 +446,64 @@ function OrderWrite() {
             </div>
          </ul>
       </div>
-   )
+   );
 }
 
 //////////////// Vật tue bàn giao///////////////////
-function EquipmentHandover({handoverEquip}) {
-
-   const [state, setState] = useState([])
-   useEffect(()=>{
-      setState([...handoverEquip])
-   },[handoverEquip])
-
+function EquipmentHandover({ handoverEquip }) {
+   const [state, setState] = useState([]);
+   useEffect(() => {
+      setState([...handoverEquip]);
+   }, [handoverEquip]);
 
    const handelAddEquipmentField = () => {
-      const motherFieldElm = document.querySelector('.add-handover-equip')
-      const nameEquip = motherFieldElm.querySelector('.name').innerText
-      const amountEquip = motherFieldElm.querySelector('.amount').innerText
-      const unitEquipElm = motherFieldElm.querySelector('.unit').value
+      const motherFieldElm = document.querySelector('.add-handover-equip');
+      const nameEquip = motherFieldElm.querySelector('.name').innerText;
+      const amountEquip = motherFieldElm.querySelector('.amount').innerText;
+      const unitEquipElm = motherFieldElm.querySelector('.unit').value;
 
       if (nameEquip !== '' && amountEquip !== '') {
          // kiểm tra nếu có dữ liệu thì mới cho thêm
-         const array = [...state, [nameEquip, amountEquip, unitEquipElm]]
-         motherFieldElm.querySelector('.name').innerText = '' // xoa sau khi them
-         motherFieldElm.querySelector('.amount').innerText = '' // xoa sau khi them
-         motherFieldElm.querySelector('.unit').value = 'Cái'
-         setState(array)
+         const array = [...state, [nameEquip, amountEquip, unitEquipElm]];
+         motherFieldElm.querySelector('.name').innerText = ''; // xoa sau khi them
+         motherFieldElm.querySelector('.amount').innerText = ''; // xoa sau khi them
+         motherFieldElm.querySelector('.unit').value = 'Cái';
+         setState(array);
       } else {
-         alert('Tên Vật Tư và Số Lượng không được bỏ trống !!!')
+         alert('Tên Vật Tư và Số Lượng không được bỏ trống !!!');
       }
-   }
+   };
    const handelDeleteEquipmentField = (indexDlt) => {
-      const indexDltParseInt = parseInt(indexDlt, 10)
-      const newArray = []
+      const indexDltParseInt = parseInt(indexDlt, 10);
+      const newArray = [];
       state.forEach((crr, index) => {
          if (index !== indexDltParseInt) {
-            newArray.push(crr)
+            newArray.push(crr);
          }
-      })
-      setState(newArray)
-   }
- 
+      });
+      setState(newArray);
+   };
+
    return (
       <div className={style.fieldJobWarp}>
          <div className={`${style.fieldEquipHandOverWrap}`}>
-            <ul
-               className={style.fieldJobList}
-               style={{ padding: 0, marginTop: '3px', marginBottom: '3px' }}
-            >
+            <ul className={style.fieldJobList} style={{ padding: 0, marginTop: '3px', marginBottom: '3px' }}>
                {state.map((crr, index) => {
                   return (
                      <li className={`${style.fieldEquipHandOverItem} create-handover`} key={index}>
                         <span
                            className={`material-symbols-outlined ${style.fieldJobItemDelete}`}
                            onClick={(e) => {
-                              handelDeleteEquipmentField(e.target.dataset.index)
+                              handelDeleteEquipmentField(e.target.dataset.index);
                            }}
                            data-index={index}
                         >
                            delete
                         </span>
-                        <span
-                           className={style.spaceLR5}
-                           style={{ width: '20px', textAlign: 'right' }}
-                        >
+                        <span className={style.spaceLR5} style={{ width: '20px', textAlign: 'right' }}>
                            {index + 1}.
                         </span>
-                        <span
-                           className="handoverItem"
-                           style={{ color: 'blue', flex: 1, flexBasis: '100%' }}
-                           data-handover-input="name"
-                        >
+                        <span className="handoverItem" style={{ color: 'blue', flex: 1, flexBasis: '100%' }} data-handover-input="name">
                            {crr[0]}
                         </span>
                         <p
@@ -575,12 +516,11 @@ function EquipmentHandover({handoverEquip}) {
                         >
                            {crr[1]}
                         </p>
-                        <span className={`${style.unit} handoverItem`} 
-                           data-handover-input="unit">
+                        <span className={`${style.unit} handoverItem`} data-handover-input="unit">
                            {crr[2]}
                         </span>
                      </li>
-                  )
+                  );
                })}
             </ul>
          </div>
@@ -595,11 +535,7 @@ function EquipmentHandover({handoverEquip}) {
                   </div>
                   <div className={style.fieldIssueItemContentWarpItem}>
                      <span className={style.fieldIssueItemTitleChild}>Số lượng*</span>
-                     <p
-                        className={`${style.fieldJobItemInput} amount`}
-                        style={{ textAlign: 'right' }}
-                        contentEditable="true"
-                     />
+                     <p className={`${style.fieldJobItemInput} amount`} style={{ textAlign: 'right' }} contentEditable="true" />
                      <span className={style.space5}></span>
                      <select className={`${style.optionUnit} unit`} name="unit">
                         <option value={'Cái'}>Cái</option>
@@ -620,7 +556,7 @@ function EquipmentHandover({handoverEquip}) {
             </div>
          </section>
       </div>
-   )
+   );
 }
 
 /////////////////handel even///////////////////////
