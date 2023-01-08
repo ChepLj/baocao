@@ -1,7 +1,7 @@
    //TODO: lấy thời gian API trên http://worldtimeapi.org/api/timezone/Asia/Ho_Chi_Minh
    let getTimeAPICount = 0
  export default function getTimeAPI(callBackResultTime) {
-    fetch('http://worldtimeapi.org/api/timezone/Asia/Ho_Chi_Minh')
+    fetch('https://worldtimeapi.org/api/timezone/Asia/Ho_Chi_Minh')
        .then((response) => response.json())
        .then((data) => {
           console.log(data)
@@ -30,10 +30,10 @@
        const yearStamp = today.getFullYear()
        const timeStamp = `${today.getFullYear()}-${monthStamp}-${dateStamp}`
        const hourStamp = today.getHours()
-        //    result.date.timestamp = timeStamp
+
         const nowInMillisecond = today.getTime()
        
-    //    upload(nowInMillisecond) //! đang làm ở đoạn này 
+
     return {
         yearStamp: Number(yearStamp),
         monthStamp:Number(monthStamp),
