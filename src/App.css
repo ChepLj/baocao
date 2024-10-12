@@ -1,6 +1,6 @@
 :root {
    /* --widthScreen: 100%; */
-   --widthScreen: 1440px;
+   --widthScreen: 100vw;
    box-sizing: border-box;
 }
 
@@ -10,10 +10,12 @@
    height: 100vh;
 
    /* text-align: center; */
-   max-width: 1440px;
+   /* max-width: 1440px; */
    background-color: rgb(255, 255, 255);
    padding: 0px;
    scrollbar-width: thin;
+
+overflow-y: hidden;
 }
 
 /* Scroll Bar */

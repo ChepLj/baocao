@@ -76,3 +76,41 @@
    color: red;
    font-size: 18px;
 }
+
+
+
+/* For PC small screens */
+@media (min-width: 480px) and (max-width: 1235px) {
+
+   .title {
+      font-size: 12px;
+
+   }
+   .documentWarp {
+      height: 145px;
+      /* background-color: rgb(189, 204, 203); */
+      margin: 0 10px;
+      /* flex: 1; */
+      position: relative;
+   }
+   
+   .document {
+      position: relative;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 2px 2px 6px #ccc;
+      width: 92px;
+      height: 137px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      margin: 0;
+      padding: 3px;
+      cursor: pointer;
+   }
+   .elementsWarp {
+      /* background-color: aqua; */
+      width: 99%;
+      height: 160px;
+     
+   }
+}

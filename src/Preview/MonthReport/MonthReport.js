@@ -74,11 +74,11 @@ export default function MonthReport({ content }) {
                   )
                })
             ) : (
-               <span
+               <span  className={`${style.item} item`}
                   style={{
-                     fontSize: '14px',
+                    
                      fontStyle: 'italic',
-                     fontWeight: '400',
+                     
                   }}
                >
                   <br />

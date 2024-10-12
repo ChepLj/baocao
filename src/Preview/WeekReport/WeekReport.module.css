@@ -137,3 +137,58 @@
    font-size: 0.875rem;
    /* font-size: 14px; */
 }
+
+
+
+/* For PC small screens */
+@media (min-width: 480px) and (max-width: 1235px) {
+
+   .address {
+      padding: 5px;
+      font-size: 0.5rem;
+
+   }
+   .logo {
+      width: 25%;
+      font-size: 0.5rem;
+      padding: 5px;
+   }
+   .header {
+      
+      margin: 0 5px 5px 7px;
+   }
+   .title {
+
+      font-size: 1rem;
+    
+   }
+   .user {
+
+      font-size: 0.7rem;
+    
+   }
+   .list {
+      
+      font-size: 0.7rem;
+     
+   }
+
+   .item {
+      font-size: 0.6rem;
+      font-weight: 500;
+  
+      margin: 5px 10px 10px 35px;
+   }
+   .signatureDate {
+      font-size: 0.6rem;
+   }
+   
+   .signatureName {
+      font-size: 0.6rem;
+   }
+
+   .issueWarp {
+      font-size: 0.7rem;
+
+   }
+}

@@ -1,213 +1,30 @@
-.warpPage {
+.container {
+   width: 100%;
+   height: 99%;
+   /* overflow: auto; */
+   display: flex;
+   flex-direction: column;
+ }
+
+ .contentWrap{
+   display: flex;
+
+ }
+ .leftSide {
+   width: 67%;
    height: 100%;
-   background-color: rgba(212, 215, 217, 0.4);
-   overflow-y: hidden;
-}
-.writeAreaTitle {
-   font-size: 24px;
-   font-weight: 700;
-   color: rgba(78, 9, 238, 0.887);
-}
-.writeAreaTime {
-   font-size: 18px;
-   font-weight: 600;
-   color: #333;
-   display: flex;
-   align-items: center;
-   padding: 0 10px;
-}
-.user {
-   padding: 1px 5px;
-   font-style: italic;
-   color: #dc5907;
-   font-size: 18px;
-   font-weight: 600;
-   margin: 0 20px;
-}
-
-.warpContent {
-   display: flex;
-}
-
-.writeArea {
-   width: 70%;
-   height: 90vh;
-   /* background-color: aqua; */
+   border-right: 1px solid gray;
    display: flex;
    flex-direction: column;
-   align-items: center;
-   overflow-y: scroll;
-   scrollbar-width: thin;
-}
+   overflow: auto;
+ }
 
-.fieldJobWarp {
-   width: 90%;
-   /* height: 300px; */
-   background-color: white;
-   margin: 10px 0;
-   border: 1px solid #ccc;
-   padding: 10px 12px;
-}
 
-.fieldJobTitle {
-   font-size: 16;
-   font-weight: 500;
-}
+ .rightSide {
 
-.fieldJobList {
-   /* background-color: aqua; */
-   width: 99%;
-   margin: 10px 0px 10px 0px;
-   padding: 5px 10px;
-}
-
-.fieldJobItem {
-   list-style: none;
-   margin: 7px 0;
-   display: flex;
-   align-items: center;
-}
-
-.fieldJobItemTitle {
-   font-size: 16;
-   font-weight: 400;
-   font-style: italic;
-   width: 80px;
-}
-
-.fieldJobItemInput {
-   flex: 1;
-   max-width: 750px;
-   padding: 3px 10px;
-   border: 1px solid #ccc;
-   background-color: white;
-   margin: 0 5px;
-   font-size: 16px;
-}
-
-.fieldJobItemDelete {
-   cursor: pointer;
-}
-
-.fieldJobItemDelete:hover {
-   color: red;
-}
-
-.addJobWrap {
-   display: flex;
-   align-items: center;
-   font-size: 14px;
-   margin-left: 95px;
-   cursor: pointer;
-   width: fit-content;
-}
-
-.addJobWrap:hover {
-   font-weight: 500;
-}
-
-/* Issue */
-.fieldIssueWarp {
-   width: 90%;
-   /* height: 300px; */
-   background-color: white;
-   margin: 10px 0;
-   border: 1px solid #ccc;
-   padding: 10px 12px;
-}
-
-.fieldIssueTitle {
-   font-size: 16;
-   font-weight: 500;
-}
-
-.fieldIssueList {
-   /* background-color: aqua; */
-   width: 99%;
-   margin: 10px 0px 10px 0px;
-   padding: 5px 10px;
-}
-
-.fieldIssueItem {
-   list-style: none;
-   margin: 5px 0 14px 0;
-   padding-bottom: 5px;
-   display: flex;
-   align-items: top;
-   border-bottom: 1px solid rgb(120, 119, 119);
-}
-
-.fieldIssueItemTitle {
-   font-size: 16;
-   font-weight: 400;
-   font-style: italic;
-   width: 90px;
-}
-.fieldIssueItemContentWarp {
-   flex: 1;
-   display: flex;
-   flex-direction: column;
-   /* align-items: center; */
-}
-
-.fieldIssueItemContentWarpItem {
-   display: flex;
-   justify-content: space-between;
-   align-items: top;
-   margin: 5px 0;
-}
-.fieldIssueItemTitleChild {
-   font-size: 14px;
-   font-weight: 500;
-   line-height: 26px;
-   /* font-style: italic; */
-   /* width: 60px; */
-}
-.fieldIssueItemInput {
-   flex: 1;
-   max-width: 670px;
-   padding: 3px 10px;
-   border: 1px solid #ccc;
-   background-color: white;
-   margin: 0 5px;
-   font-size: 16px;
-}
-
-.fieldIssueItemDelete {
-   cursor: pointer;
-   height: 24px;
-}
-
-.fieldIssueItemDelete:hover {
-   color: red;
-}
-
-.addIssueWrap {
-   display: flex;
-   align-items: center;
-   font-size: 14px;
-   margin-left: 95px;
-   width: fit-content;
-   cursor: pointer;
-}
-
-.addIssueWrap:hover {
-   font-weight: 500;
-}
-
-.optionWeek {
-   font-size: 20px;
-   font-weight: 600;
-   color: #4ce930;
-}
-.optionMonth {
-   font-size: 20px;
-   font-weight: 600;
-   color: #dc5907;
-}
-
-/* descriptionArea */
-.descriptionArea {
-   border-left: 1px solid rgb(147, 147, 147);
-   flex: 1;
-}
+   width: 30%;
+   height: 100%;
+   padding: 10px;
+   overflow: auto;
+ }
+ 

@@ -68,7 +68,36 @@
    cursor: pointer;
    border-radius: 15px;
    box-shadow: 2px 2px 5px rgb(38, 34, 80);
+  
 }
 .downloadJPG:hover {
    box-shadow: 1px 1px 29px rgb(209, 223, 203);
+}
+
+
+
+/* For PC small screens */
+@media (min-width: 480px) and (max-width: 1235px) {
+
+
+   .form {
+      position: absolute;
+      width: 30rem;
+      height: 98.5vh;
+      background-color: white;
+   }
+   .downloadPDF {
+      font-size: 14px;
+      width: 140px;
+      height: 25px;
+    
+   }
+
+
+   .downloadJPG {
+      font-size: 14px;
+      width: 140px;
+      height: 25px;
+   
+   }
 }

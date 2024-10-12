@@ -102,7 +102,7 @@ export default function Header({ user, authLogin }) {
          <div className={style.nav}>
             <div className={style.writeReport}>
                Viết báo cáo mới{'...'}
-               <span className="material-symbols-outlined">edit_calendar</span>
+               <span className={`material-symbols-outlined ${style.writeReportIcon}`}>edit_calendar</span>
                <div className={style.writeReportWrap}>
                   <ul className={style.writeReportList}>
                      <li className={style.writeReportItem}>

@@ -61,7 +61,7 @@ function ElementDoc({ data, authEmailCurrent }) {
          >
             <div className={style.document}>
                Báo cáo Tuần{' '}
-               <span style={{ color: 'red', fontSize: '22px', fontWeight: '700' }}>
+               <span  style={{ color: 'red', fontSize: '22px', fontWeight: '700' }}>
                   <br />
                   {data.date.week}
                </span>

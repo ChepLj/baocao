@@ -1,7 +1,7 @@
 .warpPage {
    display: flex;
    flex-direction: column;
-   height: 100%;
+   height: 100% ;
    background-color: rgba(240, 248, 255, 0.4);
 }
 
@@ -13,9 +13,9 @@
 }
 
 .leftSideContent {
-   /* width: calc(var(--widthScreen) / 12 * 2); */
-   width: 225px;
-   min-width: 225px;
+   width: calc(var(--widthScreen) / 12 * 2);
+   /* width: 225px; */
+   /* min-width: 225px; */
    /* background-color: antiquewhite; */
    border-right: 1px solid #ccc;
    margin: 2px;
@@ -45,4 +45,19 @@
    margin: 2px;
    overflow-y: scroll;
    scrollbar-width: thin;
+}
+
+
+
+
+/* For PC small screens */
+@media (min-width: 480px) and (max-width: 1235px) {
+
+   .newReport {
+      width: 100%;
+      height: 169px;
+      /* background-color: cornflowerblue; */
+      margin: 2px;
+      border-bottom: 1px solid #ccc;
+   }
 }

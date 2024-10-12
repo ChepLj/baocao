@@ -223,3 +223,74 @@
    border-left: 1px solid rgb(147, 147, 147);
    flex: 1;
 }
+
+
+
+
+
+/* For PC small screens */
+@media (min-width: 480px) and (max-width: 1235px) {
+   .writeAreaTitle {
+      font-size: 18px;
+   }
+
+   .writeAreaTime {
+      font-size: 12px;
+     
+   }
+   .optionMonth {
+      font-size: 16px;
+      
+   }
+   .optionWeek {
+      font-size: 16px;
+      
+   }
+
+   .fieldIssueTitle {
+      font-size: 12px;
+
+   }
+   .fieldIssueItem {
+      font-size: 12px;
+
+   }
+   .fieldIssueItemTitleChild {
+      font-size: 11px;
+
+   }
+   .fieldIssueItemInput {
+      font-size: 11px;
+
+   }
+
+   .fieldJobTitle {
+      font-size: 12px ;
+
+   }
+   .fieldJobItemTitle {
+      font-size: 12px;
+
+   }
+   .addIssueWrap {
+      color:#333;
+      font-size: 12px;
+
+   }
+  
+   .fieldJobItemInput {
+
+      font-size: 12px;
+   }
+   .user {
+
+      font-size: 14px;
+
+   }
+
+   .addJobWrap {
+
+      font-size: 12px;
+
+   }
+}

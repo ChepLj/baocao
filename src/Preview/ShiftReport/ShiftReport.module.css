@@ -338,3 +338,48 @@
    font-style: italic;
    display: block;
 }
+
+
+/* For PC small screens */
+@media (min-width: 480px) and (max-width: 1235px) {
+
+   .infoItem{
+      font-size: 1em;
+   }
+   .infoItemChild{
+         font-size: 1.1em;
+   }
+   .headerTitle{
+      font-size: 18px !important;
+   }
+
+
+   .headerItem {
+   
+      margin: 5px 0;
+
+   }
+   .tableCaption{
+     
+      font-size: 0.7rem;
+
+   }
+
+   .tableTitle{
+      font-size: 0.6em;
+
+   }
+   .tableTitleChild{
+      font-size: 0.5em;
+
+   }
+   .tableContent{
+      font-size: 0.6em;
+
+   
+   }
+   .tableContentChild{
+      font-size: 0.44em;
+ 
+   }
+}

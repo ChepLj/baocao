@@ -30,7 +30,11 @@
    margin: 5px;
    padding: 0;
    text-align: center;
+
 }
+
+ 
+ 
 
 .button {
    width: 99%;
@@ -70,4 +74,45 @@
 .buttonTypeFilter {
 }
 .buttonUserFilter {
+}
+
+
+/* For PC small screens */
+@media (min-width: 480px) and (max-width: 1235px) {
+
+   .title {
+      font-size: 12px;
+
+   }
+
+   .fieldTitle {
+      font-size: 10px;
+
+   }
+   .button {
+
+      font-size: 10px;
+
+   }
+   .titleIcon{
+      font-size: 18px;
+   }
+
+   .titleWarp {
+      display: none;
+   }
+
+   .fieldWarp {
+
+      padding-top: 0px;
+   }
+
+
+   .lists {
+      margin: 5px;
+      padding: 0;
+      text-align: center;
+      max-height: 300px;
+      overflow-y: auto;  /* Tạo thanh cuộn dọc khi cần */
+   }
 }

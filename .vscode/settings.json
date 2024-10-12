@@ -1,19 +1,11 @@
 {
-    "cSpell.words": [
-        "công",
-        "cuối",
-        "Điện",
-        "LUYỆN",
-        "Ngày",
-        "phần",
-        "PHÔI",
-        "Pomina",
-        "Tháng",
-        "THÉP",
-        "trong",
-        "việc"
-    ],
-    "[javascript]": {
-        "editor.maxTokenizationLineLength": 4000
-    }
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
+    "hide-files.files": []
 }

@@ -1,15 +1,14 @@
 import style from './CreateShiftDocLayout.module.css';
 import Header from './Header/Header';
-import { useLocation } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getFirebaseData } from '../../handelAction/getFirebaseData';
 import getTimeAPI from './../../handelAction/getTime';
 
 export default function CreateShiftDocLayout() {
-   let location = useLocation(); //dùng useLocation để lấy prop
+   // let location = useLocation(); //dùng useLocation để lấy prop
    const [handoverEquip, setHandoverEquip] = useState([]);
 
-   const user = location.state.user;
+   // const user = location.state.user;
 
    const date = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
    const month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -31,7 +30,7 @@ export default function CreateShiftDocLayout() {
          } else if (Elm.name === 'shiftYearReport') {
             Elm.value = yearStamp;
          } else if (Elm.name === 'shiftDateReport') {
-            hourStamp >= 8 && hourStamp <= 20 ? (Elm.value = dateStamp) : dateStamp == 1 ? (Elm.value = dateStamp) : (Elm.value = dateStamp - 1);
+            hourStamp >= 8 && hourStamp <= 20 ? (Elm.value = dateStamp) : dateStamp === 1 ? (Elm.value = dateStamp) : (Elm.value = dateStamp - 1);
             // Elm.value = today.getDate()
             const sessionElm = document.querySelector('select[name=shiftSessionReport]');
             hourStamp >= 8 && hourStamp <= 20 ? (sessionElm.value = 'Ca Ngày') : (sessionElm.value = 'Ca Đêm');

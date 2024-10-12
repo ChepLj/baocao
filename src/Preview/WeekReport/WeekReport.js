@@ -52,11 +52,11 @@ export default function WeekReport({ content }) {
                   )
                })
             ) : (
-               <span
+               <span className={`${style.item} item`}
                   style={{
-                     fontSize: '12px',
+                    
                      fontStyle: 'italic',
-                     fontWeight: '400',
+                     
                   }}
                >
                   <br />

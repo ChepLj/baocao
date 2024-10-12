@@ -9,6 +9,7 @@ export default function LoginLayout() {
    // lấy user khi reload lại trang
    getRedirectResult(auth)
       .then((result) => {
+         console.log(result)
          // The signed-in user info.
          if (result) {
             // document.querySelector('.loader').remove()

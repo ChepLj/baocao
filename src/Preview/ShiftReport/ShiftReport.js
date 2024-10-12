@@ -1,7 +1,7 @@
 import style from './ShiftReport.module.css'
 import { logoPomina,confirm } from '../../static/svg/sgv'
 import createConfirmShift from '../../handelAction/createDataPost/createConfirmShift'
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import { getFirebaseData } from './../../handelAction/getFirebaseData';
 
 export default function ShiftReport({ content }) {
@@ -81,7 +81,7 @@ export default function ShiftReport({ content }) {
             <div
                className={`${style.headerItem} ${style.headerItemBorderLR} shift-headerItem shift-headerItemBorderLR`}
             >
-               <span style={{ fontSize: '1.5rem', fontWeight: 700 }}>Báo Cáo CA</span>
+               <span className={`${style.headerTitle} shift-headerTitle`} style={{ fontSize: '1.5rem', fontWeight: 700 }}>Báo Cáo CA</span>
                <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>Bảo Trì Điện BF </span>
             </div>
             <div className={`${style.headerItemInfo} shift-headerItemInfo`}>

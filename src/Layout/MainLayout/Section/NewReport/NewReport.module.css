@@ -104,3 +104,33 @@
    margin: 2px 0;
    padding: 3px;
 }
+
+
+/* For PC small screens */
+@media (min-width: 480px) and (max-width: 1235px) {
+
+   .documentWarp {
+      height: 120px;
+
+   }
+
+   .document {
+
+      width: 77px;
+      height: 107px;
+      font-size: 10px;
+      font-weight: 500;
+
+   }
+   .time {
+      font-size: 6px;
+
+   }
+
+   .elementsWarp {
+
+      height: 140px;
+
+   }
+
+}

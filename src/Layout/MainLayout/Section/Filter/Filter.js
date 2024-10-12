@@ -100,7 +100,7 @@ export default function Filter({ user, callback }) {
       <section className={style.warp}>
          <div className={style.titleWarp}>
             <div className={style.title}>Lọc Báo Cáo Theo </div>
-            <span className="material-symbols-outlined">filter_alt</span>
+            <span className={`material-symbols-outlined ${style.titleIcon}`}>filter_alt</span>
          </div>
          <section className={style.fieldWarp}>
             <div className={style.fieldTitle}>Loại Báo Cáo</div>
@@ -120,7 +120,7 @@ export default function Filter({ user, callback }) {
                </button>
             </ul>
          </section>
-         <section className={style.fieldWarp}>
+         <section className={style.fieldWarp} >
             <div className={style.fieldTitle}>Người Báo Cáo</div>
             <ul className={style.lists}>
                <button

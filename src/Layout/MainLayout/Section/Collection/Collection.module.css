@@ -17,3 +17,15 @@
 .warp::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
+
+
+/* For PC small screens */
+@media (min-width: 480px) and (max-width: 1235px) {
+
+  .title {
+   
+    font-size: 14px;
+
+  }
+
+}

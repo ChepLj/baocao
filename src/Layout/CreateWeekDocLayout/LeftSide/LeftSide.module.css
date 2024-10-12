@@ -14,7 +14,6 @@
    color: #333;
    display: flex;
    align-items: center;
-   justify-content: center;
    padding: 0 10px;
 }
 .user {
@@ -26,13 +25,11 @@
    margin: 0 20px;
 }
 
-.warpContent {
-   display: flex;
-}
+
 
 .writeArea {
-   width: 70%;
-   height: 90vh;
+   width: 100%;
+   height: 92vh;
    /* background-color: aqua; */
    display: flex;
    flex-direction: column;
@@ -45,20 +42,20 @@
    width: 90%;
    /* height: 300px; */
    background-color: white;
-   margin: 5px 0;
+   margin: 10px 0;
    border: 1px solid #ccc;
    padding: 10px 12px;
 }
 
 .fieldJobTitle {
-   font-size: 16px;
+   font-size: 16;
    font-weight: 500;
 }
 
 .fieldJobList {
    /* background-color: aqua; */
    width: 99%;
-   margin: 10px 0px 0px 0px;
+   margin: 10px 0px 10px 0px;
    padding: 5px 10px;
 }
 
@@ -70,7 +67,7 @@
 }
 
 .fieldJobItemTitle {
-   font-size: 16px;
+   font-size: 16;
    font-weight: 400;
    font-style: italic;
    width: 80px;
@@ -88,7 +85,6 @@
 
 .fieldJobItemDelete {
    cursor: pointer;
-   font-size: 1rem;
 }
 
 .fieldJobItemDelete:hover {
@@ -113,7 +109,7 @@
    width: 90%;
    /* height: 300px; */
    background-color: white;
-   margin: 5px 0;
+   margin: 10px 0;
    border: 1px solid #ccc;
    padding: 10px 12px;
 }
@@ -126,7 +122,7 @@
 .fieldIssueList {
    /* background-color: aqua; */
    width: 99%;
-   margin: 10px 0px 0px 0px;
+   margin: 10px 0px 10px 0px;
    padding: 5px 10px;
 }
 
@@ -202,69 +198,23 @@
    font-weight: 600;
    color: #4ce930;
 }
-.date {
+.optionMonth {
    font-size: 20px;
    font-weight: 600;
-   padding: 0 8px;
    color: #dc5907;
-   line-height: 20px;
-   
 }
 
 /* descriptionArea */
 .descriptionArea {
    border-left: 1px solid rgb(147, 147, 147);
    flex: 1;
-   height: 85vh;
-   overflow-y: scroll;
-   scrollbar-width: thin;
 }
 
-.space10{
-   padding: 10px
-}
-.space5{
-   padding: 5px
-}
-
-.spaceLR10{
-   padding: 0 10px
-}
-.spaceLR5{
-   padding: 0 5px
-}
-.spaceLR2dot5{
-   padding: 0 2.5px
-}
-.redColor {
-   color:red;
-}
-
-.fieldEquipHandOverItem{
-   width: 100%;
-   display: flex;
+.addJob_addImageWrap{
+   display: flex ;
    justify-content: space-between;
-   align-items: center;
-   margin: 3px 0;
+   
 }
-
-.fieldEquipHandOverWrap{
-   list-style: none;
-   margin: 5px 0 14px 0;
-   padding-bottom: 5px;
-   display: flex;
-   flex-direction: column;
-   align-items: top;
-   border-bottom: 1px solid rgb(120, 119, 119);
-}
-
-.unit{
-   min-width: 50px;
-   text-align: left;
-}
-
-
-
 /* For PC small screens */
 @media (min-width: 480px) and (max-width: 1235px) {
    .writeAreaTitle {
@@ -275,15 +225,15 @@
       font-size: 12px;
      
    }
+   .optionMonth {
+      font-size: 16px;
+      
+   }
    .optionWeek {
       font-size: 16px;
       
    }
-   .date {
-      font-size: 14px;
-     
-      
-   }
+
    .fieldIssueTitle {
       font-size: 12px;
 
@@ -314,13 +264,26 @@
       font-size: 12px;
 
    }
-   .fieldEquipHandOverItem{
-      font-size: 10px;
-   }
-
+  
    .fieldJobItemInput {
 
       font-size: 12px;
    }
-   
+   .user {
+
+      font-size: 14px;
+
+   }
+
+   .addJobWrap {
+
+      font-size: 12px;
+
+   }
+   .fieldJobItemDelete{
+      font-size: 20px;
+   }
+   .fieldIssueItemDelete{
+      font-size: 20px;
+   }
 }

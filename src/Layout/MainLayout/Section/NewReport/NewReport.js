@@ -55,7 +55,7 @@ function ElementWeekDoc({ data }) {
                <span
                   style={{
                      color: 'gray',
-                     fontSize: '10px',
+                     fontSize: '9px',
                      fontWeight: '700',
                   }}
                >
