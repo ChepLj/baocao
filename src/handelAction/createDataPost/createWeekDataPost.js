@@ -84,40 +84,47 @@ export default function createWeekDataPost(callBack) {
    // result.plan = plan
    // result.propose = propose
    result.authEmail = authEmail
+   
    result.user = user
    result.date = { month: month, week: week, timestamp: timestamp }
-   const ref = `Report/WeekReport/${Date.now()}`
-   updateDataFirebase(ref, result).then(() => {
-      getFirebaseData(ref)
-         .then((result) => {
-            // console.log(result.val())
-            callBack(result.val())
-         })
-         .catch((error) => {
-            alert(error)
-         })
-   })
-   return true
+
+   result.images = []
+   result.attachments = []
+   result.reportType = 'WEEK REPORT'
+
+   callBack({state:'file Upload', data :result})
+//    const ref = `Report/WeekReport/${Date.now()}`
+//    updateDataFirebase(ref, result).then(() => {
+//       getFirebaseData(ref)
+//          .then((result) => {
+//             // console.log(result.val())
+//             callBack(result.val())
+//          })
+//          .catch((error) => {
+//             alert(error)
+//          })
+//    })
+//    return true
 }
 ////////////
 
-function updateDataFirebase(ref, objectData) {
-   objectData['ref'] = ref
-   // const newRef = ref
-   const updates = {}
-   updates[ref] = objectData
-   const objectDataNew = {}
-   objectDataNew.authEmail = objectData.authEmail
-   objectDataNew.ref = ref
-   objectDataNew.user = objectData.user
-   objectDataNew.date = objectData.date
-   objectDataNew.type = 'weekReport'
-   updates[`NewReport/${Date.now()}`] = objectDataNew
-   //   for (const key in objectData) {
-   //     updates["Report"] = objectData[key];
-   //   }
+// function updateDataFirebase(ref, objectData) {
+//    objectData['ref'] = ref
+//    // const newRef = ref
+//    const updates = {}
+//    updates[ref] = objectData
+//    const objectDataNew = {}
+//    objectDataNew.authEmail = objectData.authEmail
+//    objectDataNew.ref = ref
+//    objectDataNew.user = objectData.user
+//    objectDataNew.date = objectData.date
+//    objectDataNew.type = 'weekReport'
+//    updates[`NewReport/${Date.now()}`] = objectDataNew
+//    //   for (const key in objectData) {
+//    //     updates["Report"] = objectData[key];
+//    //   }
 
-   // console.log(updates);
+//    // console.log(updates);
 
-   return update(dbRT, updates)
-}
+//    return update(dbRT, updates)
+// }

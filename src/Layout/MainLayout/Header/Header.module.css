@@ -184,57 +184,12 @@
 
 
 
-/* For mobile screens */
-@media (max-width: 480px) {
-   .logo {
-      height: 35px; /* Reduce the logo size */
-      padding: 0 10px;
-   }
 
-
-
-   .writeReport {
-      padding: 2px 10px; /* Adjust padding for smaller screens */
-      font-size: 12px;
-   }
-   .writeReportIcon{
-      font-size: 12px;
-   }
-
-   .myReport {
-      font-size: 12px;
-   }
-   .writeReportWrap {
-       width: 180px; /*Smaller dropdown width */
-   }
-   .writeReportItem {
-
-      font-size: 12px;
-
-   }
-   .avatar {
-      width: 20px; /* Smaller avatar */
-      height: 20px;
-   }
-
-   .accountList {
-      min-width: 10rem; /* Adjust account dropdown width */
-   }
-
-   .accountBtn {
-      width: 100%;
-   }
-
-   .accountItem {
-      font-size: 12px;
-   }
-   
-}
 
 
 
 /* For PC small screens */
-@media (min-width: 480px) and (max-width: 1235px) {
+@media (min-width: 0px) and (max-width: 1235px) {
    .logo {
       height: 35px; /* Reduce the logo size */
       padding: 0 10px;

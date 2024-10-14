@@ -81,20 +81,23 @@ export default function Filter({ user, callback }) {
 
    //////////
    useEffect(() => {
-      const nodeListTypeFilter = document.querySelectorAll(`.${style.buttonTypeFilter}`)
-      const nodeListUserFilter = document.querySelectorAll(`.${style.buttonUserFilter}`)
-    
-      for (const value of nodeListTypeFilter) {
-         value.addEventListener('click', (e) => {
-            handelEvenTypeClick(e.target)
-         })
-      }
-      ///////////
-      for (const value of nodeListUserFilter) {
-         value.addEventListener('click', (e) => {
-            handelEvenUserClick(e.target)
-         })
-      }
+      setTimeout(()=>{
+         const nodeListTypeFilter = document.querySelectorAll(`.${style.buttonTypeFilter}`)
+         const nodeListUserFilter = document.querySelectorAll(`.${style.buttonUserFilter}`)
+       
+         for (const value of nodeListTypeFilter) {
+            value.addEventListener('click', (e) => {
+               handelEvenTypeClick(e.target)
+            })
+         }
+         ///////////
+         for (const value of nodeListUserFilter) {
+            value.addEventListener('click', (e) => {
+               handelEvenUserClick(e.target)
+            })
+         }
+      },1000)
+      
    }, [])
    return (
       <section className={style.warp}>

@@ -341,7 +341,7 @@
 
 
 /* For PC small screens */
-@media (min-width: 480px) and (max-width: 1235px) {
+@media (min-width: 0px) and (max-width: 1235px) {
 
    .infoItem{
       font-size: 1em;

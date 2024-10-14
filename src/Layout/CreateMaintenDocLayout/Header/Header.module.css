@@ -54,7 +54,7 @@
 
 
 /* For PC small screens */
-@media (min-width: 480px) and (max-width: 1235px) {
+@media (min-width: 0px) and (max-width: 1235px) {
    .logo {
       height: 35px; /* Reduce the logo size */
       padding: 0 10px;

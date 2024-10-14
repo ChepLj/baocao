@@ -8,13 +8,10 @@ import RightSide from './RightSide/RightSide';
 import { handelOpenImageFile, handelOpenTextFile } from '../../FCComponent/browserFile';
 
 export default function CreateWeekDocLayout() {
-   const [jobState, setJobState] = useState([{ id: 1, status: 'ok' }]);
+   const [jobState, setJobState] = useState([{ id: 1, images: [] }]);
    const [snackBarOpen, setSnackBarOpen] = useState(false);
-   const [imageArray1, setImageArray1] = useState([]);
-   const [imageArray2, setImageArray2] = useState([]);
-   const [imageArray3, setImageArray3] = useState([]);
-   const [imageArray4, setImageArray4] = useState([]);
-   const [imageArrays, setImageArrays] = useState([]);
+   const [file, setFile] = useState();
+
    let location = useLocation(); //dùng useLocation để lấy prop
    const user = location.state.user;
 
@@ -34,15 +31,15 @@ export default function CreateWeekDocLayout() {
             // Log the matching item
 
             // Ensure status is an array and its length is less than 4
-            if (Array.isArray(item.status) && item.status.length < 4) {
+            if (Array.isArray(item.images) && item.images.length < 4) {
                const handleNewArray = (image) => {
-                  // Add image to the status array (or create a new array if status is not set)
-                  const updatedStatus = [...(item.status || []), image];
+                  // Add image to the images array (or create a new array if images is not set)
+                  const updatedImages = [...(item.images || []), image];
 
-                  console.log('Updated status array:', updatedStatus);
+                  console.log('Updated images array:', updatedImages);
 
-                  // Update item status in the copied array
-                  item.status = updatedStatus;
+                  // Update item images in the copied array
+                  item.images = updatedImages;
 
                   // Set the updated state
                   setJobState(updatedJobState);
@@ -50,13 +47,13 @@ export default function CreateWeekDocLayout() {
 
                // Trigger the file handler and pass the function to process the image
                handelOpenImageFile(handleNewArray);
-            } else if (!Array.isArray(item.status)) {
-               // If status is not an array, initialize it with the new image
+            } else if (!Array.isArray(item.images)) {
+               // If images is not an array, initialize it with the new image
                const handleNewArray = (image) => {
-                  // Initialize status as an array with the new image
-                  item.status = [image];
+                  // Initialize images as an array with the new image
+                  item.images = [image];
 
-                  console.log('Initialized status array:', item.status);
+                  console.log('Initialized images array:', item.images);
 
                   // Set the updated state
                   setJobState(updatedJobState);
@@ -75,29 +72,22 @@ export default function CreateWeekDocLayout() {
    };
    //TODO_END: handle add image
 
-   //TODO: choose file
-   const handleChooseFile = (id) => {
+    //TODO: choose file
+    const handleChooseFile = () => {
+      handelOpenTextFile(setFile);
+    };
+    //TODO_END: choose file
 
-      handelOpenTextFile((file) => {
-         const updatedJobState = jobState.map((item) => {
-            if (item.id === id) {
-               item.attach = [file];
-               setJobState(updatedJobState);
-            }
-            return item; // Return the updated or unmodified item
-         });
-      });
-   };
-   //TODO_END: choose file
+
    return (
       <section className={style.container}>
-         <Header auth={auth} />
+         <Header auth={auth} mediaData={{images:{jobImage: jobState}, attachments: [file]}}/>
          <section className={style.contentWrap}>
             <div className={style.leftSide}>
                <LeftSide user={user} handleAddImage={handleAddImage} jobState={jobState} setJobState={setJobState} handleChooseFile={handleChooseFile} />
             </div>
             <div className={style.rightSide}>
-               <RightSide jobState={jobState} setJobState={setJobState}  />
+               <RightSide jobState={jobState} setJobState={setJobState} handleChooseFile={handleChooseFile} file={file} setFile={setFile}  />
             </div>
          </section>
 

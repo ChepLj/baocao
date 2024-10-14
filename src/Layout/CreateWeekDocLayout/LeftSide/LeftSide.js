@@ -46,7 +46,7 @@ export default function LeftSide({ user, handleAddImage, jobState, setJobState, 
                </select>{' '}
             </div>
             <i style={{ fontSize: '0.8rem' }}>(Ngày đầu tiên của Tuần 1 sẽ là Thứ 2 đầu tiên của tháng)</i>
-            <JobWrite handleAddImage={handleAddImage} jobState={jobState} setJobState={setJobState} handleChooseFile={handleChooseFile} />
+            <JobWrite handleAddImage={handleAddImage} jobState={jobState} setJobState={setJobState} />
             <IssueWrite />
             <PlanWrite />
             <ProposeWrite />
@@ -57,14 +57,14 @@ export default function LeftSide({ user, handleAddImage, jobState, setJobState, 
 
 /////////////////////
 
-function JobWrite({ handleAddImage ,jobState, setJobState, handleChooseFile }) {
+function JobWrite({ handleAddImage ,jobState, setJobState }) {
 
 
    const handelAddJobField = () => {
       // const array = [...state, state[state.length - 1] + 1];
 
       const array = [...jobState];
-      array.push({id: jobState.length + 1 , status: 'ok'} );
+      array.push({id: jobState.length + 1 , images: []} );
       setJobState(array);
    };
    const handelDeleteJobField = (id) => {
@@ -76,7 +76,7 @@ function JobWrite({ handleAddImage ,jobState, setJobState, handleChooseFile }) {
          if (+item.dataset.jobIndex === id) {
             item.remove()
             let array = [...jobState]
-            array[id-1].status = 'deleted'
+            array[id-1].images = []
             setJobState([...array])
             break;
          }
@@ -84,7 +84,7 @@ function JobWrite({ handleAddImage ,jobState, setJobState, handleChooseFile }) {
       }
       
    };
-console.log("left",jobState)
+
    return (
       <div className={style.fieldJobWarp}>
          <div className={style.fieldJobTitle}>Công việc đã làm trong tuần</div>
@@ -94,7 +94,7 @@ console.log("left",jobState)
                return (
                   <li className={`${style.fieldJobItem} create-job`} key={index} data-job-index={crr.id} data-job-id={crr.id} >
                      <div className={style.fieldJobItemTitle}>Công việc {crr.id}</div>
-                     <p className={style.fieldJobItemInput} data-job-input={index} contentEditable="true" />
+                     <p className={style.fieldJobItemInput} data-job-input={index} contentEditable="true" data-job-id={crr.id}/>
 
                      <div>
                         <Button
@@ -113,23 +113,7 @@ console.log("left",jobState)
                         >
                            0
                         </Button>
-                        <Button
-                           sx={{
-                              padding: '1px 4px', // Adjust the padding
-                              fontSize: '0.6rem', // Adjust the font size
-                              minWidth: 'auto', // Remove the default minWidth
-                              ml: 1,
-                           }}
-                           variant="outlined"
-                           size="small"
-                           color="primary"
-                           startIcon={<AttachFileIcon />}
-                           onClick={() => {
-                              handleChooseFile(crr.id);
-                           }}
-                        >
-                           0
-                        </Button>
+                        
                      </div>
                      <span
                         className={`material-symbols-outlined ${style.fieldJobItemDelete}`}
